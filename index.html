@@ -1,49 +1,107 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>موقع اصيل العربي</title>
-  <style>
-    body { font-family: Arial; margin: 0; background: #f4f4f4; color: #333; text-align: center; }
-    header { background: linear-gradient(to right, #74b9ff, #a29bfe); color: white; padding: 60px 20px; }
-    h1 { font-size: 40px; margin: 0; }
-    .container { padding: 40px 20px; max-width: 800px; margin: auto; }
-    .box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .btn { display: inline-block; background: #25D366; color: white; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-size: 20px; margin-top: 10px; font-weight: bold; }
-    .btn:hover { background: #128C7E; }
-    footer { background: #333; color: white; padding: 20px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اصيل العربي - جميع الخدمات الرقمية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;scroll-behavior:smooth}
+body{background:#f5f7fa;color:#333}
+nav{background:#667eea;padding:15px;position:sticky;top:0;z-index:100}
+nav a{color:white;text-decoration:none;margin:0 10px;font-weight:bold}
+.header{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:80px 20px;text-align:center}
+.header h1{font-size:36px;font-weight:900}
+.header .btn{background:#25D366;padding:15px 30px;border-radius:50px;color:white;text-decoration:none;font-weight:900;display:inline-block;margin-top:20px}
+.section{padding:60px 20px;max-width:1100px;margin:auto}
+.section-title{text-align:center;font-size:28px;color:#667eea;font-weight:900;margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:white;border-radius:16px;padding:20px;box-shadow:0 5px 20px rgba(0,0,0,0.08);border-top:4px solid #667eea}
+.price{color:#25D366;font-weight:900;font-size:22px}
+.btn{width:100%;background:#667eea;color:white;text-align:center;padding:12px;border-radius:10px;text-decoration:none;font-weight:bold;display:block;margin-top:10px}
+.btn-whatsapp{background:#25D366;padding:18px;border-radius:14px;color:white;text-decoration:none;font-size:20px;font-weight:900;display:block;text-align:center}
+.portfolio-img{width:100%;height:150px;background:#ddd;border-radius:10px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;color:#999}
+form input,form textarea{width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:8px}
+form button{width:100%;background:#667eea;color:white;padding:15px;border:none;border-radius:10px;font-weight:900;cursor:pointer}
+.footer{background:#222;color:white;text-align:center;padding:30px}
+.badge{background:#ffd700;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>مرحبا بكم في موقع اصيل العربي 👋</h1>
-    <p>مصمم مواقع و مطور</p>
-  </header>
+<nav>
+  <a href="#home">الرئيسية</a>
+  <a href="#services">الخدمات</a>
+  <a href="#portfolio">اعمالي</a>
+  <a href="#templates">القوالب</a>
+  <a href="#contact">تواصل</a>
+</nav>
 
-  <div class="container">
-    
-    <div class="box">
-      <h2>من انا</h2>
-      <p>اسمي اصيل. احب تصميم المواقع وتطويرها. هذا اول موقع رسمي لي على الانترنت واتمنى ان ينال اعجابكم.</p>
-    </div>
+<div class="header" id="home">
+  <h1>🚀 اصيل العربي</h1>
+  <p>مصمم و مبرمج | جميع الخدمات الرقمية في مكان واحد</p>
+  <p>تسليم خلال 24 ساعة | الدفع بعد الاستلام</p>
+  <a href="https://wa.me/967777069302" class="btn">اطلب خدمتك الان</a>
+</div>
 
-    <div class="box">
-      <h2>الخدمات</h2>
-      <p>✅ تصميم مواقع شخصية<br>✅ تصميم متاجر<br>✅ تعديل المواقع</p>
-    </div>
-
-    <div class="box">
-      <h2>تواصل معي على واتساب</h2>
-      <p>اضغط الزر للتواصل مباشرة</p>
-      <a class="btn" href="https://wa.me/967777069302" target="_blank">ارسل لي واتساب</a>
-    </div>
-
+<div class="section" id="services">
+  <h2 class="section-title">الخدمات والاسعار</h2>
+  <div class="grid">
+    <div class="card"><h3>موقع شخصي</h3><p>صفحة واحدة احترافية</p><div class="price">20$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
+    <div class="card"><h3>متجر الكتروني</h3><p>متجر كامل بالمنتجات</p><div class="price">45$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
+    <div class="card"><h3>تصميم لوجو</h3><p>3 نماذج + المصدر</p><div class="price">10$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
+    <div class="card"><h3>هوية بصرية</h3><p>لوجو + الوان + كرت</p><div class="price">25$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
+    <div class="card"><h3>CV احترافي</h3><p>سيرة ذاتية PDF</p><div class="price">8$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
+    <div class="card"><h3>تصاميم سوشيال</h3><p>10 منشورات</p><div class="price">15$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
   </div>
+</div>
 
-  <footer>
-    <p>جميع الحقوق محفوظة © موقع اصيل العربي 2026</p>
-  </footer>
+<div class="section" id="portfolio">
+  <h2 class="section-title">معرض اعمالي</h2>
+  <div class="grid">
+    <div class="card"><div class="portfolio-img">صورة موقع 1</div><h3>موقع شركة تقنية</h3></div>
+    <div class="card"><div class="portfolio-img">صورة لوجو 1</div><h3>هوية مطعم</h3></div>
+    <div class="card"><div class="portfolio-img">صورة متجر</div><h3>متجر ملابس</h3></div>
+  </div>
+</div>
+
+<div class="section" id="templates">
+  <h2 class="section-title">القوالب والملفات للبيع <span class="badge">تحميل فوري</span></h2>
+  <div class="grid">
+    <div class="card"><h3>قالب متجر HTML</h3><p>جاهز للتعديل والرفع</p><div class="price">8$</div><a href="https://wa.me/967777069302" class="btn">اشتري</a></div>
+    <div class="card"><h3>5 قوالب CV</h3><p>PDF قابل للتعديل</p><div class="price">5$</div><a href="https://wa.me/967777069302" class="btn">اشتري</a></div>
+    <div class="card"><h3>قوالب عروض بوربوينت</h3><p>20 شريحة احترافية</p><div class="price">7$</div><a href="https://wa.me/967777069302" class="btn">اشتري</a></div>
+    <div class="card"><h3>برنامج فواتير Excel</h3><p>معادلات جاهزة</p><div class="price">10$</div><a href="https://wa.me/967777069302" class="btn">اشتري</a></div>
+  </div>
+</div>
+
+<div class="section" id="contact">
+  <h2 class="section-title">تواصل معي</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>ارسل رسالة</h3>
+      <form>
+        <input type="text" placeholder="اسمك">
+        <input type="email" placeholder="ايميلك">
+        <textarea rows="4" placeholder="اكتب طلبك"></textarea>
+        <button type="button" onclick="window.open('https://wa.me/967777069302')">ارسال عبر واتساب</button>
+      </form>
+    </div>
+    <div class="card">
+      <h3>معلومات التواصل</h3>
+      <p>📱 واتساب: 777069302</p>
+      <p>💰 الدفع: فودافون كاش / محفظة</p>
+      <p>⏰ وقت العمل: 24 ساعة</p>
+      <a href="https://wa.me/967777069302" class="btn-whatsapp">تواصل واتساب مباشر</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>جميع الحقوق محفوظة © 2026 اصيل العربي</p>
+  <p>صنع بـ ❤️ في اليمن</p>
+</div>
 
 </body>
 </html>
