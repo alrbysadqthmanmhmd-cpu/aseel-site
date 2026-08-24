@@ -2,106 +2,257 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>اصيل العربي - جميع الخدمات الرقمية</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;scroll-behavior:smooth}
-body{background:#f5f7fa;color:#333}
-nav{background:#667eea;padding:15px;position:sticky;top:0;z-index:100}
-nav a{color:white;text-decoration:none;margin:0 10px;font-weight:bold}
-.header{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:80px 20px;text-align:center}
-.header h1{font-size:36px;font-weight:900}
-.header .btn{background:#25D366;padding:15px 30px;border-radius:50px;color:white;text-decoration:none;font-weight:900;display:inline-block;margin-top:20px}
-.section{padding:60px 20px;max-width:1100px;margin:auto}
-.section-title{text-align:center;font-size:28px;color:#667eea;font-weight:900;margin-bottom:40px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.card{background:white;border-radius:16px;padding:20px;box-shadow:0 5px 20px rgba(0,0,0,0.08);border-top:4px solid #667eea}
-.price{color:#25D366;font-weight:900;font-size:22px}
-.btn{width:100%;background:#667eea;color:white;text-align:center;padding:12px;border-radius:10px;text-decoration:none;font-weight:bold;display:block;margin-top:10px}
-.btn-whatsapp{background:#25D366;padding:18px;border-radius:14px;color:white;text-decoration:none;font-size:20px;font-weight:900;display:block;text-align:center}
-.portfolio-img{width:100%;height:150px;background:#ddd;border-radius:10px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;color:#999}
-form input,form textarea{width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:8px}
-form button{width:100%;background:#667eea;color:white;padding:15px;border:none;border-radius:10px;font-weight:900;cursor:pointer}
-.footer{background:#222;color:white;text-align:center;padding:30px}
-.badge{background:#ffd700;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اصيل العربي | المبرمج المحترف والمتجر الرقمي</title>
+  <style>
+    * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
+    body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+    .top-bar { background: #0f172a; color: #f8fafc; text-align: center; padding: 10px; font-size: 13px; font-weight: bold; }
+    header { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: #fff; padding: 40px 20px; text-align: center; }
+    header h1 { font-size: 28px; margin-bottom: 8px; }
+    .badge { background: #f59e0b; color: #0f172a; padding: 4px 12px; border-radius: 20px; font-size: 14px; font-weight: bold; display: inline-block; margin-bottom: 10px; }
+    header p { font-size: 15px; opacity: 0.95; max-width: 600px; margin: auto; }
+    .ad-banner { background: #fef3c7; border: 2px dashed #f59e0b; color: #78350f; text-align: center; padding: 12px; margin: 20px auto; max-width: 1100px; border-radius: 10px; font-weight: bold; font-size: 14px; }
+    .filter-container { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 10px; max-width: 1100px; margin: auto; }
+    .filter-btn { background: #fff; border: 1px solid #cbd5e1; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; transition: 0.2s; }
+    .filter-btn.active, .filter-btn:hover { background: #2563eb; color: #fff; border-color: #2563eb; }
+    .container { max-width: 1100px; margin: 20px auto 40px; padding: 0 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-4px); }
+    .card-img { width: 100%; height: 160px; object-fit: cover; }
+    .card-body { padding: 15px; text-align: right; flex-grow: 1; }
+    .card-body h3 { font-size: 17px; color: #0f172a; margin-bottom: 6px; }
+    .card-body p { font-size: 13px; color: #64748b; height: 38px; overflow: hidden; line-height: 1.4; }
+    .price { font-size: 20px; color: #16a34a; font-weight: bold; margin: 10px 0 0; }
+    .card-footer { padding: 12px; background: #f8fafc; border-top: 1px solid #f1f5f9; }
+    .buy-btn { background: #2563eb; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; font-size: 14px; }
+    .buy-btn:hover { background: #1d4ed8; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; }
+    .modal-content { background: white; width: 90%; max-width: 400px; margin: 60px auto; padding: 20px; border-radius: 12px; text-align: right; }
+    .bank-box { background: #f1f5f9; padding: 12px; border-radius: 8px; margin: 15px 0; border: 1px solid #cbd5e1; font-size: 14px; }
+    .wa-btn { display: block; text-align: center; background-color: #22c55e; color: white; text-decoration: none; padding: 12px; border-radius: 6px; font-weight: bold; margin-bottom: 10px; }
+    .close-btn { background: #ef4444; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; width: 100%; }
+    footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 20px; font-size: 13px; }
+  </style>
 </head>
 <body>
 
-<nav>
-  <a href="#home">الرئيسية</a>
-  <a href="#services">الخدمات</a>
-  <a href="#portfolio">اعمالي</a>
-  <a href="#templates">القوالب</a>
-  <a href="#contact">تواصل</a>
-</nav>
+  <div class="top-bar">⚡ تسليم فوري للملفات والأكواد فور إشعار التحويل البنكي!</div>
 
-<div class="header" id="home">
-  <h1>🚀 اصيل العربي</h1>
-  <p>مصمم و مبرمج | جميع الخدمات الرقمية في مكان واحد</p>
-  <p>تسليم خلال 24 ساعة | الدفع بعد الاستلام</p>
-  <a href="https://wa.me/967777069302" class="btn">اطلب خدمتك الان</a>
-</div>
+  <header>
+    <span class="badge">⭐ أفضل مبرمج ومصمم محترف</span>
+    <h1>اصيل العربي</h1>
+    <p>متخصص في برمجة وتصميم المواقع الإلكترونية، صفحات الهبوط، وتوفير أفضل الحلول والمنتجات الرقمية الجاهزة للتسليم خلال 24 ساعة.</p>
+  </header>
 
-<div class="section" id="services">
-  <h2 class="section-title">الخدمات والاسعار</h2>
-  <div class="grid">
-    <div class="card"><h3>موقع شخصي</h3><p>صفحة واحدة احترافية</p><div class="price">20$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
-    <div class="card"><h3>متجر الكتروني</h3><p>متجر كامل بالمنتجات</p><div class="price">45$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
-    <div class="card"><h3>تصميم لوجو</h3><p>3 نماذج + المصدر</p><div class="price">10$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
-    <div class="card"><h3>هوية بصرية</h3><p>لوجو + الوان + كرت</p><div class="price">25$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
-    <div class="card"><h3>CV احترافي</h3><p>سيرة ذاتية PDF</p><div class="price">8$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
-    <div class="card"><h3>تصاميم سوشيال</h3><p>10 منشورات</p><div class="price">15$</div><a href="https://wa.me/967777069302" class="btn">اطلب</a></div>
+  <div class="ad-banner">
+    📢 <strong>مساحة إعلانية مخصصة:</strong> اعرض متجرك أو قناتك هنا ليصل إلى آلاف الزوار يومياً! للتواصل عبر الواتساب.
   </div>
-</div>
 
-<div class="section" id="portfolio">
-  <h2 class="section-title">معرض اعمالي</h2>
-  <div class="grid">
-    <div class="card"><div class="portfolio-img">صورة موقع 1</div><h3>موقع شركة تقنية</h3></div>
-    <div class="card"><div class="portfolio-img">صورة لوجو 1</div><h3>هوية مطعم</h3></div>
-    <div class="card"><div class="portfolio-img">صورة متجر</div><h3>متجر ملابس</h3></div>
+  <div class="filter-container">
+    <button class="filter-btn active" onclick="filterCategory('all')">عرض الكل</button>
+    <button class="filter-btn" onclick="filterCategory('site')">🌐 مواقع كاملة</button>
+    <button class="filter-btn" onclick="filterCategory('landing')">📦 صفحات هبوط</button>
+    <button class="filter-btn" onclick="filterCategory('pdf')">📄 كتب PDF</button>
+    <button class="filter-btn" onclick="filterCategory('ads')">🎨 تصاميم وإعلانات</button>
+    <button class="filter-btn" onclick="filterCategory('code')">💻 أكواد ونصوص</button>
   </div>
-</div>
 
-<div class="section" id="templates">
-  <h2 class="section-title">القوالب والملفات للبيع <span class="badge">تحميل فوري</span></h2>
-  <div class="grid">
-    <div class="card"><h3>قالب متجر HTML</h3><p>جاهز للتعديل والرفع</p><div class="price">8$</div><a href="https://wa.me/967777069302" class="btn">اشتري</a></div>
-    <div class="card"><h3>5 قوالب CV</h3><p>PDF قابل للتعديل</p><div class="price">5$</div><a href="https://wa.me/967777069302" class="btn">اشتري</a></div>
-    <div class="card"><h3>قوالب عروض بوربوينت</h3><p>20 شريحة احترافية</p><div class="price">7$</div><a href="https://wa.me/967777069302" class="btn">اشتري</a></div>
-    <div class="card"><h3>برنامج فواتير Excel</h3><p>معادلات جاهزة</p><div class="price">10$</div><a href="https://wa.me/967777069302" class="btn">اشتري</a></div>
-  </div>
-</div>
+  <div class="container">
 
-<div class="section" id="contact">
-  <h2 class="section-title">تواصل معي</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>ارسل رسالة</h3>
-      <form>
-        <input type="text" placeholder="اسمك">
-        <input type="email" placeholder="ايميلك">
-        <textarea rows="4" placeholder="اكتب طلبك"></textarea>
-        <button type="button" onclick="window.open('https://wa.me/967777069302')">ارسال عبر واتساب</button>
-      </form>
+    <div class="card site">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500" class="card-img">
+      <div class="card-body">
+        <h3>موقع مطعم / كافيه كامِل</h3>
+        <p>منيو إلكتروني متكامل، نظام حجوزات، وتصميم سريع متوافق مع كافة الشاشات.</p>
+        <div class="price">45$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('موقع مطعم وكافيه', '45$')">شراء الآن</button>
+      </div>
     </div>
-    <div class="card">
-      <h3>معلومات التواصل</h3>
-      <p>📱 واتساب: 777069302</p>
-      <p>💰 الدفع: فودافون كاش / محفظة</p>
-      <p>⏰ وقت العمل: 24 ساعة</p>
-      <a href="https://wa.me/967777069302" class="btn-whatsapp">تواصل واتساب مباشر</a>
+
+    <div class="card site">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500" class="card-img">
+      <div class="card-body">
+        <h3>موقع تعريف للشركات</h3>
+        <p>تصميم حداثي يعرض خدمات الشركة، فريق العمل، ونموذج تواصل مباشر.</p>
+        <div class="price">50$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('موقع شركة كامل', '50$')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card landing">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" class="card-img">
+      <div class="card-body">
+        <h3>صفحة هبوط لبيع منتج تجاري</h3>
+        <p>مخصصة لزيادة المبيعات وعرض مميزات المنتج مع أزرار طلب عبر الواتساب.</p>
+        <div class="price">15$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('صفحة هبوط لمنتج تجاري', '15$')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card landing">
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500" class="card-img">
+      <div class="card-body">
+        <h3>صفحة هبوط لتطبيق جوال</h3>
+        <p>عرض شاشات التطبيق وروابط التحميل المباشرة على Google Play و App Store.</p>
+        <div class="price">20$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('صفحة هبوط لتطبيق جوال', '20$')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card pdf">
+      <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=500" class="card-img">
+      <div class="card-body">
+        <h3>دليل احتراف البرمجة (PDF)</h3>
+        <p>كتاب خطوة بخطوة لشرح بناء المواقع من الصفر حتى مرحلة الاحتراف.</p>
+        <div class="price">5$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('PDF دليل البرمجة', '5$')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card pdf">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500" class="card-img">
+      <div class="card-body">
+        <h3>أسرار زيادة مبيعات المتاجر (PDF)</h3>
+        <p>دليل شامل يحتوي على أفضل 20 استراتيجية لتحسين المبيعات والإعلانات.</p>
+        <div class="price">8$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('PDF دليل التسويق', '8$')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card ads">
+      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500" class="card-img">
+      <div class="card-body">
+        <h3>حزمة 50 قالب منشورات Canva</h3>
+        <p>قوالب جاهزة للشبكات الاجتماعية سهلة التعديل لتسويق منتجاتك.</p>
+        <div class="price">10$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('حزمة 50 قالب Canva', '10$')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card ads">
+      <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500" class="card-img">
+      <div class="card-body">
+        <h3>قالب بطاقة أعمال رقمية (Linktree)</h3>
+        <p>صفحة خفيفة وسريعة تتضمن صورك، جميع حساباتك، وأرقام التواصل.</p>
+        <div class="price">7$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('قالب بطاقة أعمال رقمية', '7$')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card code">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" class="card-img">
+      <div class="card-body">
+        <h3>كود ربط المواقع بـ WhatsApp تلقائياً</h3>
+        <p>سكربت جاهز ومباشر لتوجيه طلبات العملاء إلى واتسابك بسهولة.</p>
+        <div class="price">6$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('كود ربط الواتساب التلقائي', '6$')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card landing">
+      <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500" class="card-img">
+      <div class="card-body">
+        <h3>قالب معرض أعمال للمستقلين (Portfolio)</h3>
+        <p>عرض مشاريعك وسيرتك الذاتية بشكل جذب وشديد الاحترافية.</p>
+        <div class="price">12$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('قالب معرض أعمال احترافي', '12$')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card site">
+      <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?w=500" class="card-img">
+      <div class="card-body">
+        <h3>قالب عد تنازلي (Coming Soon)</h3>
+        <p>صفحة ترقب مخصصة قبل إطلاق المشاريع تجمع إيميلات وهواتف الزوار.</p>
+        <div class="price">5$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('قالب صفحة قريباً', '5$')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card code">
+      <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500" class="card-img">
+      <div class="card-body">
+        <h3>مكتبة 500+ أيقونة وصورة ثلاثية الأبعاد</h3>
+        <p>ملفات جاهزة لاستخدامها في تصميم المواقع والتطبيقات والإعلانات.</p>
+        <div class="price">9$</div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('حزمة الأيقونات والصور 3D', '9$')">شراء الآن</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="payment-modal" class="modal">
+    <div class="modal-content">
+      <h3 style="color:#0f172a;">إتمام عملية الشراء</h3>
+      <p style="font-size:14px; margin-top:5px;">المنتج: <strong id="selected-template" style="color:#2563eb;"></strong></p>
+      <p style="font-size:14px;">السعر المطلـوب: <strong id="selected-price" style="color:#16a34a;"></strong></p>
+      <div class="bank-box">
+        <p><strong>طريقة الدفع:</strong> تحويل بنكي / محفظة</p>
+        <p><strong>رقم المحفظة:</strong> 24011</p>
+        <p><strong>اسم المستفيد:</strong> أصيل العربي</p>
+      </div>
+      <p style="font-size:12px; color:#64748b; margin-bottom:10px;">قم بتحويل المبلغ ثم ارسل اشعار الدفع</p>
+      <a id="whatsapp-link" href="#" target="_blank" class="wa-btn">إرسال إشعار الدفع عبر واتساب</a>
+      <button onclick="closePayment()" class="close-btn">إلغاء</button>
     </div>
   </div>
-</div>
 
-<div class="footer">
-  <p>جميع الحقوق محفوظة © 2026 اصيل العربي</p>
-  <p>صنع بـ ❤️ في اليمن</p>
-</div>
+  <footer>
+    <p>جميع الحقوق محفوظة © اصيل العربي - أفضل مبرمج ومطور مواقع محترف 2026</p>
+  </footer>
+
+  <script>
+    function filterCategory(category) {
+      const cards = document.querySelectorAll('.card');
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    function openPayment(itemName, price) {
+      document.getElementById('selected-template').innerText = itemName;
+      document.getElementById('selected-price').innerText = price;
+      var message = "مرحباً أستاذ أصيل، قمت بتحويل مبلغ (" + price + ") لشراء (" + itemName + ")، وهذا إشعار التحويل:";
+      var whatsappUrl = "https://wa.me/967777069302?text=" + encodeURIComponent(message);
+      document.getElementById('whatsapp-link').href = whatsappUrl;
+      document.getElementById('payment-modal').style.display = 'block';
+    }
+    function closePayment() {
+      document.getElementById('payment-modal').style.display = 'none';
+    }
+  </script>
 
 </body>
 </html>
