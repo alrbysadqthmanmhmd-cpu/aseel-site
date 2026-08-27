@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اصيل العربي | المبرمج المحترف والمتجر الرقمي</title>
+  <title>اصيل العربي | المتجر الرقمي الشامل والأقوى</title>
   <style>
     * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
@@ -13,18 +13,21 @@
     header h1 { font-size: 28px; margin-bottom: 8px; }
     .badge { background: #f59e0b; color: #0f172a; padding: 4px 12px; border-radius: 20px; font-size: 14px; font-weight: bold; display: inline-block; margin-bottom: 10px; }
     header p { font-size: 15px; opacity: 0.95; max-width: 600px; margin: auto; }
-    .ad-banner { background: #fef3c7; border: 2px dashed #f59e0b; color: #78350f; text-align: center; padding: 12px; margin: 20px auto; max-width: 1100px; border-radius: 10px; font-weight: bold; font-size: 14px; }
-    .filter-container { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 10px; max-width: 1100px; margin: auto; }
+    .ad-banner { background: #fef3c7; border: 2px dashed #f59e0b; color: #78350f; text-align: center; padding: 12px; margin: 20px auto; max-width: 1200px; border-radius: 10px; font-weight: bold; font-size: 14px; }
+    .filter-container { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 10px; max-width: 1200px; margin: auto; }
     .filter-btn { background: #fff; border: 1px solid #cbd5e1; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; transition: 0.2s; }
     .filter-btn.active, .filter-btn:hover { background: #2563eb; color: #fff; border-color: #2563eb; }
-    .container { max-width: 1100px; margin: 20px auto 40px; padding: 0 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .card { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.2s; }
+    .container { max-width: 1200px; margin: 20px auto 40px; padding: 0 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.2s; position: relative; }
     .card:hover { transform: translateY(-4px); }
+    .discount-tag { position: absolute; top: 10px; left: 10px; background: #ef4444; color: white; padding: 3px 8px; font-size: 11px; font-weight: bold; border-radius: 4px; z-index: 10; }
     .card-img { width: 100%; height: 160px; object-fit: cover; }
     .card-body { padding: 15px; text-align: right; flex-grow: 1; }
     .card-body h3 { font-size: 17px; color: #0f172a; margin-bottom: 6px; }
     .card-body p { font-size: 13px; color: #64748b; height: 38px; overflow: hidden; line-height: 1.4; }
-    .price { font-size: 20px; color: #16a34a; font-weight: bold; margin: 10px 0 0; }
+    .price-box { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+    .price { font-size: 20px; color: #16a34a; font-weight: bold; }
+    .old-price { font-size: 14px; color: #94a3b8; text-decoration: line-through; }
     .card-footer { padding: 12px; background: #f8fafc; border-top: 1px solid #f1f5f9; }
     .buy-btn { background: #2563eb; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; font-size: 14px; }
     .buy-btn:hover { background: #1d4ed8; }
@@ -38,38 +41,175 @@
 </head>
 <body>
 
-  <div class="top-bar">⚡ تسليم فوري للملفات والأكواد فور إشعار التحويل البنكي!</div>
+  <div class="top-bar">⚡ عروض حصرية وتخفيضات كبرى! تسليم فوري للمنتجات الرقمية فور تأكيد التحويل.</div>
 
   <header>
-    <span class="badge">⭐ أفضل مبرمج ومصمم محترف</span>
+    <span class="badge">⭐ المتجر الرقمي الأول المعتمد</span>
     <h1>اصيل العربي</h1>
-    <p>متخصص في برمجة وتصميم المواقع الإلكترونية، صفحات الهبوط، وتوفير أفضل الحلول والمنتجات الرقمية الجاهزة للتسليم خلال 24 ساعة.</p>
+    <p>وفرنا لك كل ما تحتاجه من خدمات، ألعاب، اشتراكات، وأكواد برمجية بأسعار منافسة جداً وتوصيل فوري عبر الواتساب.</p>
   </header>
 
   <div class="ad-banner">
-    📢 <strong>مساحة إعلانية مخصصة:</strong> اعرض متجرك أو قناتك هنا ليصل إلى آلاف الزوار يومياً! للتواصل عبر الواتساب.
+    📢 <strong>عرض لفترة محدودة:</strong> احصل على خصم إضافي عند طلب أكثر من منتجين معاً! تواصل معنا عبر الواتساب.
   </div>
 
   <div class="filter-container">
-    <button class="filter-btn active" onclick="filterCategory('all')">عرض الكل</button>
-    <button class="filter-btn" onclick="filterCategory('site')">🌐 مواقع كاملة</button>
-    <button class="filter-btn" onclick="filterCategory('landing')">📦 صفحات هبوط</button>
-    <button class="filter-btn" onclick="filterCategory('pdf')">📄 كتب PDF</button>
-    <button class="filter-btn" onclick="filterCategory('ads')">🎨 تصاميم وإعلانات</button>
-    <button class="filter-btn" onclick="filterCategory('code')">💻 أكواد ونصوص</button>
+    <button class="filter-btn active" onclick="filterCategory('all', event)">عرض الكل</button>
+    <button class="filter-btn" onclick="filterCategory('games', event)">🎮 شحن ألعاب</button>
+    <button class="filter-btn" onclick="filterCategory('subs', event)">📺 اشتراكات رقمية</button>
+    <button class="filter-btn" onclick="filterCategory('social', event)">📈 خدمات سوشيال</button>
+    <button class="filter-btn" onclick="filterCategory('site', event)">🌐 مواقع ومتاجر</button>
+    <button class="filter-btn" onclick="filterCategory('landing', event)">📦 صفحات هبوط</button>
+    <button class="filter-btn" onclick="filterCategory('pdf', event)">📄 كتب ودورات</button>
+    <button class="filter-btn" onclick="filterCategory('code', event)">💻 أكواد وسكربتات</button>
   </div>
 
   <div class="container">
 
+    <!-- قسم شحن الألعاب والأكثر طلباً -->
+    <div class="card games">
+      <span class="discount-tag">تخفيض 40%</span>
+      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500" class="card-img">
+      <div class="card-body">
+        <h3>شحن 660 شدة ببجي (PUBG)</h3>
+        <p>شحن رسمي وسريع وآمن لحسابك خلال دقائق برقم الآيدي فقط.</p>
+        <div class="price-box">
+          <span class="price">8.99$</span>
+          <span class="old-price">15$</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('شحن 660 شدة ببجي', '8.99$', 'https://drive.google.com/drive/folders/رابط_شدات_ببجي', 'أهلاً بك! تم استلام طلبك لشحن شدات ببجي، يرجى إرسال رقم الـ ID الخاص بك مع إشعار التحويل.')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card games">
+      <span class="discount-tag">الأكثر مبيعاً</span>
+      <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500" class="card-img">
+      <div class="card-body">
+        <h3>بطاقة متجر جوجل بلاي 10$</h3>
+        <p>كود أمريكي رسمي لتشغيل الشحن وتنزيل الألعاب والتطبيقات المدفوعة.</p>
+        <div class="price-box">
+          <span class="price">10.5$</span>
+          <span class="old-price">12$</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('بطاقة جوجل بلاي 10$', '10.5$', 'https://drive.google.com/drive/folders/رابط_جوجل_بلاي', 'مرحباً بك! تفضل بإرسال إشعار التحويل لكي أرسل لك كود بطاقة جوجل بلاي الفوري.')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card games">
+      <span class="discount-tag">عروض خاصة</span>
+      <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?w=500" class="card-img">
+      <div class="card-body">
+        <h3>بطاقة شدات فري فاير (عروض خاصة)</h3>
+        <p>شحن جواهر فري فاير مباشرة وبأرخص الأسعار بالسوق.</p>
+        <div class="price-box">
+          <span class="price">5.00$</span>
+          <span class="old-price">8$</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('جواهر فري فاير', '5.00$', 'https://drive.google.com/drive/folders/رابط_فري_فاير', 'أهلاً بك! أرسل لي آيدي فري فاير مع إشعار التحويل لإتمام الشحن فوراً.')">شراء الآن</button>
+      </div>
+    </div>
+
+    <!-- قسم الاشتراكات الرقمية -->
+    <div class="card subs">
+      <span class="discount-tag">توفير هائل</span>
+      <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=500" class="card-img">
+      <div class="card-body">
+        <h3>اشتراك نتفليكس (Netflix) شهر كامل</h3>
+        <p>حساب خاص عالي الجودة 4K شاشة كاملة وبدون إزعاج.</p>
+        <div class="price-box">
+          <span class="price">4.99$</span>
+          <span class="old-price">12$</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('اشتراك نتفليكس شهر', '4.99$', 'https://drive.google.com/drive/folders/رابط_نتفليكس', 'مرحباً بك في عالم الترفيه! تم استلام طلبك لحساب نتفليكس، تفضل بإرسال الإشعار.')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card subs">
+      <span class="discount-tag">مميز</span>
+      <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500" class="card-img">
+      <div class="card-body">
+        <h3>اشتراك يوتيوب بريميم (YouTube Premium)</h3>
+        <p>يوتيوب بدون إعلانات نهائياً مع ميزة التشغيل في الخلفية.</p>
+        <div class="price-box">
+          <span class="price">3.00$</span>
+          <span class="old-price">7$</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('يوتيوب بريميم', '3.00$', 'https://drive.google.com/drive/folders/رابط_يوتيوب_بريميم', 'أهلاً بك! أرسل إيميلك المراد تفعيله مع إشعار التحويل لليوتيوب بريميم.')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card subs">
+      <span class="discount-tag">تخفيض 50%</span>
+      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500" class="card-img">
+      <div class="card-body">
+        <h3>حساب شات جي بي تي بلس (ChatGPT Plus)</h3>
+        <p>حساب خاص مدعوم بأحدث نموذج ذكاء اصطناعي GPT-4o.</p>
+        <div class="price-box">
+          <span class="price">9.99$</span>
+          <span class="old-price">20$</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('حساب ChatGPT Plus', '9.99$', 'https://drive.google.com/drive/folders/رابط_شات_جي_بي_تي', 'مبارك عليك الذكاء الاصطناعي المتقدم! تفضل بإرسال إشعار الدفع.')">شراء الآن</button>
+      </div>
+    </div>
+
+    <!-- قسم خدمات السوشيال ميديا -->
+    <div class="card social">
+      <span class="discount-tag">عرض خاص</span>
+      <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?w=500" class="card-img">
+      <div class="card-body">
+        <h3>1000 متابع تيك توك حقيقي</h3>
+        <p>دعم سريع وآمن لزيادة تفاعل صفحتك وظهورك في الاكسبلور.</p>
+        <div class="price-box">
+          <span class="price">4.00$</span>
+          <span class="old-price">10$</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('1000 متابع تيك توك', '4.00$', 'https://drive.google.com/drive/folders/رابط_متابعين_تيكتوك', 'أهلاً بك! أرسل رابط حسابك على التيك توك مع إشعار التحويل لبدء الدعم.')">شراء الآن</button>
+      </div>
+    </div>
+
+    <div class="card social">
+      <span class="discount-tag">سريع جداً</span>
+      <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=500" class="card-img">
+      <div class="card-body">
+        <h3>1000 لايك منشور إنستغرام</h3>
+        <p>إعجابات حقيقية وآمنة لزيادة موثوقية منشوراتك وحسابك.</p>
+        <div class="price-box">
+          <span class="price">2.50$</span>
+          <span class="old-price">6$</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="buy-btn" onclick="openPayment('1000 لايك انستغرام', '2.50$', 'https://drive.google.com/drive/folders/رابط_لايكات_انستغرام', 'شكراً لاختيارك خدماتنا، أرسل رابط المنشور مع إشعار التحويل.')">شراء الآن</button>
+      </div>
+    </div>
+
+    <!-- المنتجات السابقة الأساسية (مواقع، صفحات هبوط، كتب، وأكواد) -->
     <div class="card site">
       <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500" class="card-img">
       <div class="card-body">
         <h3>موقع مطعم / كافيه كامِل</h3>
         <p>منيو إلكتروني متكامل، نظام حجوزات، وتصميم سريع متوافق مع كافة الشاشات.</p>
-        <div class="price">45$</div>
+        <div class="price-box">
+          <span class="price">25.00$</span>
+          <span class="old-price">45$</span>
+        </div>
       </div>
       <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('موقع مطعم وكافيه', '45$')">شراء الآن</button>
+        <button class="buy-btn" onclick="openPayment('موقع مطعم وكافيه', '25.00$', 'https://drive.google.com/drive/folders/رابط_موقع_المطعم', 'أهلاً بك يا أستاذنا، شكراً لاختيارك موقع المطعم والكافيه. تم استلام طلبك بنجاح!')">شراء الآن</button>
       </div>
     </div>
 
@@ -77,11 +217,14 @@
       <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500" class="card-img">
       <div class="card-body">
         <h3>موقع تعريف للشركات</h3>
-        <p>تصميم حداثي يعرض خدمات الشركة، فريق العمل، ونموذج تواصل مباشر.</p>
-        <div class="price">50$</div>
+        <p>تصميم حديث يعرض خدمات الشركة، فريق العمل، ونموذج تواصل مباشر.</p>
+        <div class="price-box">
+          <span class="price">30.00$</span>
+          <span class="old-price">50$</span>
+        </div>
       </div>
       <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('موقع شركة كامل', '50$')">شراء الآن</button>
+        <button class="buy-btn" onclick="openPayment('موقع شركة كامل', '30.00$', 'https://drive.google.com/drive/folders/رابط_موقع_الشركات', 'شكراً لثقتك بنا لشراء موقع الشركات التعريفي. نحن جاهزون لخدمتك دائماً!')">شراء الآن</button>
       </div>
     </div>
 
@@ -90,10 +233,13 @@
       <div class="card-body">
         <h3>صفحة هبوط لبيع منتج تجاري</h3>
         <p>مخصصة لزيادة المبيعات وعرض مميزات المنتج مع أزرار طلب عبر الواتساب.</p>
-        <div class="price">15$</div>
+        <div class="price-box">
+          <span class="price">10.00$</span>
+          <span class="old-price">15$</span>
+        </div>
       </div>
       <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('صفحة هبوط لمنتج تجاري', '15$')">شراء الآن</button>
+        <button class="buy-btn" onclick="openPayment('صفحة هبوط لمنتج تجاري', '10.00$', 'https://drive.google.com/drive/folders/رابط_صفحة_الهبوط_التجارية', 'مرحباً بك! مبارك عليك صفحة الهبوط لزيادة مبيعات منتجك التجاري.')">شراء الآن</button>
       </div>
     </div>
 
@@ -102,10 +248,13 @@
       <div class="card-body">
         <h3>صفحة هبوط لتطبيق جوال</h3>
         <p>عرض شاشات التطبيق وروابط التحميل المباشرة على Google Play و App Store.</p>
-        <div class="price">20$</div>
+        <div class="price-box">
+          <span class="price">12.00$</span>
+          <span class="old-price">20$</span>
+        </div>
       </div>
       <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('صفحة هبوط لتطبيق جوال', '20$')">شراء الآن</button>
+        <button class="buy-btn" onclick="openPayment('صفحة هبوط لتطبيق جوال', '12.00$', 'https://drive.google.com/drive/folders/رابط_صفحة_التطبيق', 'خطوة ممتازة لتسويق تطبيقك عبر صفحة الهبوط الاحترافية!')">شراء الآن</button>
       </div>
     </div>
 
@@ -114,10 +263,13 @@
       <div class="card-body">
         <h3>دليل احتراف البرمجة (PDF)</h3>
         <p>كتاب خطوة بخطوة لشرح بناء المواقع من الصفر حتى مرحلة الاحتراف.</p>
-        <div class="price">5$</div>
+        <div class="price-box">
+          <span class="price">3.00$</span>
+          <span class="old-price">5$</span>
+        </div>
       </div>
       <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('PDF دليل البرمجة', '5$')">شراء الآن</button>
+        <button class="buy-btn" onclick="openPayment('PDF دليل البرمجة', '3.00$', 'https://drive.google.com/drive/folders/رابط_كتاب_البرمجة', 'نتمنى لك رحلة ممتعة وموفقة في عالم البرمجة مع هذا الدليل الشامل.')">شراء الآن</button>
       </div>
     </div>
 
@@ -126,34 +278,13 @@
       <div class="card-body">
         <h3>أسرار زيادة مبيعات المتاجر (PDF)</h3>
         <p>دليل شامل يحتوي على أفضل 20 استراتيجية لتحسين المبيعات والإعلانات.</p>
-        <div class="price">8$</div>
+        <div class="price-box">
+          <span class="price">4.00$</span>
+          <span class="old-price">8$</span>
+        </div>
       </div>
       <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('PDF دليل التسويق', '8$')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card ads">
-      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500" class="card-img">
-      <div class="card-body">
-        <h3>حزمة 50 قالب منشورات Canva</h3>
-        <p>قوالب جاهزة للشبكات الاجتماعية سهلة التعديل لتسويق منتجاتك.</p>
-        <div class="price">10$</div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('حزمة 50 قالب Canva', '10$')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card ads">
-      <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500" class="card-img">
-      <div class="card-body">
-        <h3>قالب بطاقة أعمال رقمية (Linktree)</h3>
-        <p>صفحة خفيفة وسريعة تتضمن صورك، جميع حساباتك، وأرقام التواصل.</p>
-        <div class="price">7$</div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('قالب بطاقة أعمال رقمية', '7$')">شراء الآن</button>
+        <button class="buy-btn" onclick="openPayment('PDF دليل التسويق', '4.00$', 'https://drive.google.com/drive/folders/رابط_كتاب_المبيعات', 'استراتيجيات رائعة تنتظرك لمضاعفة أرباح ومبيعات متجرك الإلكتروني.')">شراء الآن</button>
       </div>
     </div>
 
@@ -162,46 +293,28 @@
       <div class="card-body">
         <h3>كود ربط المواقع بـ WhatsApp تلقائياً</h3>
         <p>سكربت جاهز ومباشر لتوجيه طلبات العملاء إلى واتسابك بسهولة.</p>
-        <div class="price">6$</div>
+        <div class="price-box">
+          <span class="price">4.00$</span>
+          <span class="old-price">6$</span>
+        </div>
       </div>
       <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('كود ربط الواتساب التلقائي', '6$')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card landing">
-      <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500" class="card-img">
-      <div class="card-body">
-        <h3>قالب معرض أعمال للمستقلين (Portfolio)</h3>
-        <p>عرض مشاريعك وسيرتك الذاتية بشكل جذب وشديد الاحترافية.</p>
-        <div class="price">12$</div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('قالب معرض أعمال احترافي', '12$')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card site">
-      <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?w=500" class="card-img">
-      <div class="card-body">
-        <h3>قالب عد تنازلي (Coming Soon)</h3>
-        <p>صفحة ترقب مخصصة قبل إطلاق المشاريع تجمع إيميلات وهواتف الزوار.</p>
-        <div class="price">5$</div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('قالب صفحة قريباً', '5$')">شراء الآن</button>
+        <button class="buy-btn" onclick="openPayment('كود ربط الواتساب التلقائي', '4.00$', 'https://drive.google.com/drive/folders/رابط_كود_الواتساب', 'سكربت ممتاز لربط موقعك بالواتساب واستقبال العملاء مباشرة.')">شراء الآن</button>
       </div>
     </div>
 
     <div class="card code">
       <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500" class="card-img">
       <div class="card-body">
-        <h3>مكتبة 500+ أيقونة وصورة ثلاثية الأبعاد</h3>
+        <h3>مكتبة 500+ أيقونة وصورة 3D</h3>
         <p>ملفات جاهزة لاستخدامها في تصميم المواقع والتطبيقات والإعلانات.</p>
-        <div class="price">9$</div>
+        <div class="price-box">
+          <span class="price">5.00$</span>
+          <span class="old-price">9$</span>
+        </div>
       </div>
       <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('حزمة الأيقونات والصور 3D', '9$')">شراء الآن</button>
+        <button class="buy-btn" onclick="openPayment('حزمة الأيقونات والصور 3D', '5.00$', 'https://drive.google.com/drive/folders/رابط_الأيقونات_الثلاثية', 'أيقونات ثلاثية الأبعاد تزيد من جمال وجاذبية تصاميمك ومواقعك.')">شراء الآن</button>
       </div>
     </div>
 
@@ -213,9 +326,9 @@
       <p style="font-size:14px; margin-top:5px;">المنتج: <strong id="selected-template" style="color:#2563eb;"></strong></p>
       <p style="font-size:14px;">السعر المطلـوب: <strong id="selected-price" style="color:#16a34a;"></strong></p>
       <div class="bank-box">
-        <p><strong>طريقة الدفع:</strong> تحويل بنكي / محفظة</p>
-        <p><strong>رقم المحفظة:</strong> 24011</p>
-        <p><strong>اسم المستفيد:</strong> أصيل العربي</p>
+        <p><strong>تطبيق الدفع:</strong> نيو كارد (New Card)</p>
+        <p><strong>رقم المحفظة:</strong> 62776</p>
+        <p><strong>اسم المستفيد:</strong> رمزي العربي</p>
       </div>
       <p style="font-size:12px; color:#64748b; margin-bottom:10px;">قم بتحويل المبلغ ثم ارسل اشعار الدفع</p>
       <a id="whatsapp-link" href="#" target="_blank" class="wa-btn">إرسال إشعار الدفع عبر واتساب</a>
@@ -224,15 +337,15 @@
   </div>
 
   <footer>
-    <p>جميع الحقوق محفوظة © اصيل العربي - أفضل مبرمج ومطور مواقع محترف 2026</p>
+    <p>جميع الحقوق محفوظة © اصيل العربي - المتجر الرقمي الشامل 2026</p>
   </footer>
 
   <script>
-    function filterCategory(category) {
+    function filterCategory(category, evt) {
       const cards = document.querySelectorAll('.card');
       const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      if(evt) evt.target.classList.add('active');
       cards.forEach(card => {
         if (category === 'all' || card.classList.contains(category)) {
           card.style.display = 'flex';
@@ -241,14 +354,18 @@
         }
       });
     }
-    function openPayment(itemName, price) {
+
+    function openPayment(itemName, price, downloadUrl, customReply) {
       document.getElementById('selected-template').innerText = itemName;
       document.getElementById('selected-price').innerText = price;
-      var message = "مرحباً أستاذ أصيل، قمت بتحويل مبلغ (" + price + ") لشراء (" + itemName + ")، وهذا إشعار التحويل:";
+      
+      var message = customReply + "\n\nقمت بتحويل مبلغ (" + price + ") لشراء (" + itemName + ").\n\nوهذا إشعار التحويل المرفق.\n\n[رابط التحميل الخاص بهذا المنتج]:\n" + downloadUrl;
+      
       var whatsappUrl = "https://wa.me/967777069302?text=" + encodeURIComponent(message);
       document.getElementById('whatsapp-link').href = whatsappUrl;
       document.getElementById('payment-modal').style.display = 'block';
     }
+
     function closePayment() {
       document.getElementById('payment-modal').style.display = 'none';
     }
