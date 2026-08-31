@@ -1,375 +1,676 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اصيل العربي | المتجر الرقمي الشامل والأقوى</title>
-  <style>
-    * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
-    body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
-    .top-bar { background: #0f172a; color: #f8fafc; text-align: center; padding: 10px; font-size: 13px; font-weight: bold; }
-    header { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: #fff; padding: 40px 20px; text-align: center; }
-    header h1 { font-size: 28px; margin-bottom: 8px; }
-    .badge { background: #f59e0b; color: #0f172a; padding: 4px 12px; border-radius: 20px; font-size: 14px; font-weight: bold; display: inline-block; margin-bottom: 10px; }
-    header p { font-size: 15px; opacity: 0.95; max-width: 600px; margin: auto; }
-    .ad-banner { background: #fef3c7; border: 2px dashed #f59e0b; color: #78350f; text-align: center; padding: 12px; margin: 20px auto; max-width: 1200px; border-radius: 10px; font-weight: bold; font-size: 14px; }
-    .filter-container { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 10px; max-width: 1200px; margin: auto; }
-    .filter-btn { background: #fff; border: 1px solid #cbd5e1; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; transition: 0.2s; }
-    .filter-btn.active, .filter-btn:hover { background: #2563eb; color: #fff; border-color: #2563eb; }
-    .container { max-width: 1200px; margin: 20px auto 40px; padding: 0 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .card { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.2s; position: relative; }
-    .card:hover { transform: translateY(-4px); }
-    .discount-tag { position: absolute; top: 10px; left: 10px; background: #ef4444; color: white; padding: 3px 8px; font-size: 11px; font-weight: bold; border-radius: 4px; z-index: 10; }
-    .card-img { width: 100%; height: 160px; object-fit: cover; }
-    .card-body { padding: 15px; text-align: right; flex-grow: 1; }
-    .card-body h3 { font-size: 17px; color: #0f172a; margin-bottom: 6px; }
-    .card-body p { font-size: 13px; color: #64748b; height: 38px; overflow: hidden; line-height: 1.4; }
-    .price-box { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
-    .price { font-size: 20px; color: #16a34a; font-weight: bold; }
-    .old-price { font-size: 14px; color: #94a3b8; text-decoration: line-through; }
-    .card-footer { padding: 12px; background: #f8fafc; border-top: 1px solid #f1f5f9; }
-    .buy-btn { background: #2563eb; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; font-size: 14px; }
-    .buy-btn:hover { background: #1d4ed8; }
-    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; }
-    .modal-content { background: white; width: 90%; max-width: 400px; margin: 60px auto; padding: 20px; border-radius: 12px; text-align: right; }
-    .bank-box { background: #f1f5f9; padding: 12px; border-radius: 8px; margin: 15px 0; border: 1px solid #cbd5e1; font-size: 14px; }
-    .wa-btn { display: block; text-align: center; background-color: #22c55e; color: white; text-decoration: none; padding: 12px; border-radius: 6px; font-weight: bold; margin-bottom: 10px; }
-    .close-btn { background: #ef4444; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; width: 100%; }
-    footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 20px; font-size: 13px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أصيل العربي | المتجر الرقمي المتكامل ولائحة التحكم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e3a8a;
+            --secondary: #10b981;
+            --whatsapp: #25D366;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --accent: #f59e0b;
+        }
+
+        body.dark-mode {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --primary-dark: #3b82f6;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Cairo', sans-serif; transition: background 0.3s, color 0.3s; }
+        body { background: var(--bg); color: var(--text); padding-bottom: 80px; }
+
+        .navbar {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo { font-size: 20px; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+        .nav-actions { display: flex; gap: 10px; align-items: center; }
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .nav-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        .header {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: #fff;
+            text-align: center;
+            padding: 45px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .header h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+        .header p { font-size: 15px; opacity: 0.9; max-width: 650px; margin: 0 auto; line-height: 1.6; }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 20px 10px;
+        }
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-body { padding: 16px; text-align: right; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card h3 { font-size: 18px; color: var(--text); margin-bottom: 8px; font-weight: 700; }
+        .card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+        .price-tag { font-size: 22px; font-weight: 800; color: var(--primary); margin-bottom: 15px; }
+        
+        .card-actions { display: flex; flex-direction: column; gap: 8px; }
+        .btn-group-owner { display: flex; gap: 6px; }
+        
+        .btn-buy {
+            width: 100%;
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14.5px;
+            text-decoration: none;
+        }
+        .btn-buy:hover { opacity: 0.9; }
+
+        .btn-share {
+            flex: 1;
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .btn-delete {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .crypto-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            margin: 35px 0;
+        }
+        .crypto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; margin-top: 15px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; text-align: right; }
+        .form-group label { font-size: 13.5px; font-weight: 700; }
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            display: none;
+            z-index: 2000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 1000;
+        }
+        .modal-content {
+            background: var(--card-bg); padding: 25px; border-radius: 14px; width: 92%; max-width: 500px; text-align: right; position: relative;
+            border: 1px solid var(--border);
+        }
+        .close-btn { position: absolute; left: 15px; top: 15px; cursor: pointer; font-size: 20px; color: var(--text-muted); }
+
+        .owner-badge {
+            display: none;
+            background: var(--accent);
+            color: #000;
+            font-weight: 800;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        .footer { background: var(--card-bg); border-top: 1px solid var(--border); color: var(--text-muted); text-align: center; padding: 25px; margin-top: 50px; }
+    </style>
 </head>
 <body>
 
-  <div class="top-bar">⚡ عروض حصرية وتخفيضات كبرى! تسليم فوري للمنتجات الرقمية فور تأكيد التحويل.</div>
+<nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-store"></i> أصيل العربي</div>
+    <div class="nav-actions">
+        <button class="nav-btn" onclick="toggleDarkMode()" id="themeBtn"><i class="fa-solid fa-moon"></i> <span>النمط الداكن</span></button>
+        <button class="nav-btn" onclick="openAdminModal()"><i class="fa-solid fa-user-gear"></i> <span>لوحة التحكم</span></button>
+    </div>
+</nav>
 
-  <header>
-    <span class="badge">⭐ المتجر الرقمي الأول المعتمد</span>
-    <h1>اصيل العربي</h1>
-    <p>وفرنا لك كل ما تحتاجه من خدمات، ألعاب، اشتراكات، وأكواد برمجية بأسعار منافسة جداً وتوصيل فوري عبر الواتساب.</p>
-  </header>
+<header class="header">
+    <h1>متجر أصيل العربي الرقمي</h1>
+    <p>80 منتج رقمي متكامل - قوالب مواقع، حزم تصميم، كتب ودورات، خدمات برمجية وشحن عملات تسلم فورياً.</p>
+</header>
 
-  <div class="ad-banner">
-    📢 <strong>عرض لفترة محدودة:</strong> احصل على خصم إضافي عند طلب أكثر من منتجين معاً! تواصل معنا عبر الواتساب.
-  </div>
+<div class="filters">
+    <button class="filter-btn active" onclick="filterCategory('all', this)">الكل (80)</button>
+    <button class="filter-btn" onclick="filterCategory('websites', this)">قوالب مواقع (15)</button>
+    <button class="filter-btn" onclick="filterCategory('design', this)">حزم تصميم (25)</button>
+    <button class="filter-btn" onclick="filterCategory('books', this)">كتب ودورات (20)</button>
+    <button class="filter-btn" onclick="filterCategory('services', this)">خدمات وأدوات (20)</button>
+    <button class="filter-btn" onclick="filterCategory('crypto', this)">شحن عملات</button>
+</div>
 
-  <div class="filter-container">
-    <button class="filter-btn active" onclick="filterCategory('all', event)">عرض الكل</button>
-    <button class="filter-btn" onclick="filterCategory('games', event)">🎮 شحن ألعاب</button>
-    <button class="filter-btn" onclick="filterCategory('subs', event)">📺 اشتراكات رقمية</button>
-    <button class="filter-btn" onclick="filterCategory('social', event)">📈 خدمات سوشيال</button>
-    <button class="filter-btn" onclick="filterCategory('site', event)">🌐 مواقع ومتاجر</button>
-    <button class="filter-btn" onclick="filterCategory('landing', event)">📦 صفحات هبوط</button>
-    <button class="filter-btn" onclick="filterCategory('pdf', event)">📄 كتب ودورات</button>
-    <button class="filter-btn" onclick="filterCategory('code', event)">💻 أكواد وسكربتات</button>
-  </div>
+<main class="container">
 
-  <div class="container">
-
-    <!-- قسم شحن الألعاب والأكثر طلباً -->
-    <div class="card games">
-      <span class="discount-tag">تخفيض 40%</span>
-      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500" class="card-img">
-      <div class="card-body">
-        <h3>شحن 660 شدة ببجي (PUBG)</h3>
-        <p>شحن رسمي وسريع وآمن لحسابك خلال دقائق برقم الآيدي فقط.</p>
-        <div class="price-box">
-          <span class="price">8.99$</span>
-          <span class="old-price">15$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('شحن 660 شدة ببجي', '8.99$', 'https://drive.google.com/drive/folders/رابط_شدات_ببجي', 'أهلاً بك! تم استلام طلبك لشحن شدات ببجي، يرجى إرسال رقم الـ ID الخاص بك مع إشعار التحويل.')">شراء الآن</button>
-      </div>
+    <div class="crypto-box item-category" data-cat="crypto">
+        <h2 style="color: var(--primary); font-size: 20px; margin-bottom: 5px;"><i class="fa-solid fa-wallet"></i> خدمة شحن العملات الرقمية والرصيد</h2>
+        <p style="font-size: 13px; color: var(--text-muted);">ادخل بيانات الشحن الخاصة بك أو الخاصة بالعميل لإرسال الطلب فوراً عبر واتساب.</p>
+        
+        <form id="cryptoForm" onsubmit="handleCryptoSubmit(event)" class="crypto-grid">
+            <div class="form-group">
+                <label>اختر الخدمة / العملة:</label>
+                <select id="cryptoType" required>
+                    <option value="USDT (TRC20)">USDT - شبكة TRC20</option>
+                    <option value="Binance Pay">Binance Pay (ID)</option>
+                    <option value="Payeer">Payeer USD</option>
+                    <option value="عملات رقمية أخرى">عملات أخرى</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>الكمية المطلوب شحنها ($):</label>
+                <input type="number" id="cryptoAmount" min="5" placeholder="مثال: 50" required>
+            </div>
+            <div class="form-group">
+                <label>عنوان المحفظة / ID الحساب:</label>
+                <input type="text" id="cryptoAddress" placeholder="أدخل العنوان أو المعرف هنا" required>
+            </div>
+            <div class="form-group" style="justify-content: flex-end;">
+                <button type="submit" class="btn-buy" style="height: 42px;">
+                    <i class="fa-brands fa-whatsapp"></i> إرسال طلب الشحن
+                </button>
+            </div>
+        </form>
     </div>
 
-    <div class="card games">
-      <span class="discount-tag">الأكثر مبيعاً</span>
-      <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500" class="card-img">
-      <div class="card-body">
-        <h3>بطاقة متجر جوجل بلاي 10$</h3>
-        <p>كود أمريكي رسمي لتشغيل الشحن وتنزيل الألعاب والتطبيقات المدفوعة.</p>
-        <div class="price-box">
-          <span class="price">10.5$</span>
-          <span class="old-price">12$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('بطاقة جوجل بلاي 10$', '10.5$', 'https://drive.google.com/drive/folders/رابط_جوجل_بلاي', 'مرحباً بك! تفضل بإرسال إشعار التحويل لكي أرسل لك كود بطاقة جوجل بلاي الفوري.')">شراء الآن</button>
-      </div>
-    </div>
+    <div id="products-container" class="products-grid"></div>
 
-    <div class="card games">
-      <span class="discount-tag">عروض خاصة</span>
-      <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?w=500" class="card-img">
-      <div class="card-body">
-        <h3>بطاقة شدات فري فاير (عروض خاصة)</h3>
-        <p>شحن جواهر فري فاير مباشرة وبأرخص الأسعار بالسوق.</p>
-        <div class="price-box">
-          <span class="price">5.00$</span>
-          <span class="old-price">8$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('جواهر فري فاير', '5.00$', 'https://drive.google.com/drive/folders/رابط_فري_فاير', 'أهلاً بك! أرسل لي آيدي فري فاير مع إشعار التحويل لإتمام الشحن فوراً.')">شراء الآن</button>
-      </div>
-    </div>
+</main>
 
-    <!-- قسم الاشتراكات الرقمية -->
-    <div class="card subs">
-      <span class="discount-tag">توفير هائل</span>
-      <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=500" class="card-img">
-      <div class="card-body">
-        <h3>اشتراك نتفليكس (Netflix) شهر كامل</h3>
-        <p>حساب خاص عالي الجودة 4K شاشة كاملة وبدون إزعاج.</p>
-        <div class="price-box">
-          <span class="price">4.99$</span>
-          <span class="old-price">12$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('اشتراك نتفليكس شهر', '4.99$', 'https://drive.google.com/drive/folders/رابط_نتفليكس', 'مرحباً بك في عالم الترفيه! تم استلام طلبك لحساب نتفليكس، تفضل بإرسال الإشعار.')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card subs">
-      <span class="discount-tag">مميز</span>
-      <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500" class="card-img">
-      <div class="card-body">
-        <h3>اشتراك يوتيوب بريميم (YouTube Premium)</h3>
-        <p>يوتيوب بدون إعلانات نهائياً مع ميزة التشغيل في الخلفية.</p>
-        <div class="price-box">
-          <span class="price">3.00$</span>
-          <span class="old-price">7$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('يوتيوب بريميم', '3.00$', 'https://drive.google.com/drive/folders/رابط_يوتيوب_بريميم', 'أهلاً بك! أرسل إيميلك المراد تفعيله مع إشعار التحويل لليوتيوب بريميم.')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card subs">
-      <span class="discount-tag">تخفيض 50%</span>
-      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500" class="card-img">
-      <div class="card-body">
-        <h3>حساب شات جي بي تي بلس (ChatGPT Plus)</h3>
-        <p>حساب خاص مدعوم بأحدث نموذج ذكاء اصطناعي GPT-4o.</p>
-        <div class="price-box">
-          <span class="price">9.99$</span>
-          <span class="old-price">20$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('حساب ChatGPT Plus', '9.99$', 'https://drive.google.com/drive/folders/رابط_شات_جي_بي_تي', 'مبارك عليك الذكاء الاصطناعي المتقدم! تفضل بإرسال إشعار الدفع.')">شراء الآن</button>
-      </div>
-    </div>
-
-    <!-- قسم خدمات السوشيال ميديا -->
-    <div class="card social">
-      <span class="discount-tag">عرض خاص</span>
-      <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?w=500" class="card-img">
-      <div class="card-body">
-        <h3>1000 متابع تيك توك حقيقي</h3>
-        <p>دعم سريع وآمن لزيادة تفاعل صفحتك وظهورك في الاكسبلور.</p>
-        <div class="price-box">
-          <span class="price">4.00$</span>
-          <span class="old-price">10$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('1000 متابع تيك توك', '4.00$', 'https://drive.google.com/drive/folders/رابط_متابعين_تيكتوك', 'أهلاً بك! أرسل رابط حسابك على التيك توك مع إشعار التحويل لبدء الدعم.')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card social">
-      <span class="discount-tag">سريع جداً</span>
-      <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=500" class="card-img">
-      <div class="card-body">
-        <h3>1000 لايك منشور إنستغرام</h3>
-        <p>إعجابات حقيقية وآمنة لزيادة موثوقية منشوراتك وحسابك.</p>
-        <div class="price-box">
-          <span class="price">2.50$</span>
-          <span class="old-price">6$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('1000 لايك انستغرام', '2.50$', 'https://drive.google.com/drive/folders/رابط_لايكات_انستغرام', 'شكراً لاختيارك خدماتنا، أرسل رابط المنشور مع إشعار التحويل.')">شراء الآن</button>
-      </div>
-    </div>
-
-    <!-- المنتجات السابقة الأساسية (مواقع، صفحات هبوط، كتب، وأكواد) -->
-    <div class="card site">
-      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500" class="card-img">
-      <div class="card-body">
-        <h3>موقع مطعم / كافيه كامِل</h3>
-        <p>منيو إلكتروني متكامل، نظام حجوزات، وتصميم سريع متوافق مع كافة الشاشات.</p>
-        <div class="price-box">
-          <span class="price">25.00$</span>
-          <span class="old-price">45$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('موقع مطعم وكافيه', '25.00$', 'https://drive.google.com/drive/folders/رابط_موقع_المطعم', 'أهلاً بك يا أستاذنا، شكراً لاختيارك موقع المطعم والكافيه. تم استلام طلبك بنجاح!')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card site">
-      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500" class="card-img">
-      <div class="card-body">
-        <h3>موقع تعريف للشركات</h3>
-        <p>تصميم حديث يعرض خدمات الشركة، فريق العمل، ونموذج تواصل مباشر.</p>
-        <div class="price-box">
-          <span class="price">30.00$</span>
-          <span class="old-price">50$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('موقع شركة كامل', '30.00$', 'https://drive.google.com/drive/folders/رابط_موقع_الشركات', 'شكراً لثقتك بنا لشراء موقع الشركات التعريفي. نحن جاهزون لخدمتك دائماً!')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card landing">
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" class="card-img">
-      <div class="card-body">
-        <h3>صفحة هبوط لبيع منتج تجاري</h3>
-        <p>مخصصة لزيادة المبيعات وعرض مميزات المنتج مع أزرار طلب عبر الواتساب.</p>
-        <div class="price-box">
-          <span class="price">10.00$</span>
-          <span class="old-price">15$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('صفحة هبوط لمنتج تجاري', '10.00$', 'https://drive.google.com/drive/folders/رابط_صفحة_الهبوط_التجارية', 'مرحباً بك! مبارك عليك صفحة الهبوط لزيادة مبيعات منتجك التجاري.')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card landing">
-      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500" class="card-img">
-      <div class="card-body">
-        <h3>صفحة هبوط لتطبيق جوال</h3>
-        <p>عرض شاشات التطبيق وروابط التحميل المباشرة على Google Play و App Store.</p>
-        <div class="price-box">
-          <span class="price">12.00$</span>
-          <span class="old-price">20$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('صفحة هبوط لتطبيق جوال', '12.00$', 'https://drive.google.com/drive/folders/رابط_صفحة_التطبيق', 'خطوة ممتازة لتسويق تطبيقك عبر صفحة الهبوط الاحترافية!')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card pdf">
-      <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=500" class="card-img">
-      <div class="card-body">
-        <h3>دليل احتراف البرمجة (PDF)</h3>
-        <p>كتاب خطوة بخطوة لشرح بناء المواقع من الصفر حتى مرحلة الاحتراف.</p>
-        <div class="price-box">
-          <span class="price">3.00$</span>
-          <span class="old-price">5$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('PDF دليل البرمجة', '3.00$', 'https://drive.google.com/drive/folders/رابط_كتاب_البرمجة', 'نتمنى لك رحلة ممتعة وموفقة في عالم البرمجة مع هذا الدليل الشامل.')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card pdf">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500" class="card-img">
-      <div class="card-body">
-        <h3>أسرار زيادة مبيعات المتاجر (PDF)</h3>
-        <p>دليل شامل يحتوي على أفضل 20 استراتيجية لتحسين المبيعات والإعلانات.</p>
-        <div class="price-box">
-          <span class="price">4.00$</span>
-          <span class="old-price">8$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('PDF دليل التسويق', '4.00$', 'https://drive.google.com/drive/folders/رابط_كتاب_المبيعات', 'استراتيجيات رائعة تنتظرك لمضاعفة أرباح ومبيعات متجرك الإلكتروني.')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card code">
-      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" class="card-img">
-      <div class="card-body">
-        <h3>كود ربط المواقع بـ WhatsApp تلقائياً</h3>
-        <p>سكربت جاهز ومباشر لتوجيه طلبات العملاء إلى واتسابك بسهولة.</p>
-        <div class="price-box">
-          <span class="price">4.00$</span>
-          <span class="old-price">6$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('كود ربط الواتساب التلقائي', '4.00$', 'https://drive.google.com/drive/folders/رابط_كود_الواتساب', 'سكربت ممتاز لربط موقعك بالواتساب واستقبال العملاء مباشرة.')">شراء الآن</button>
-      </div>
-    </div>
-
-    <div class="card code">
-      <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500" class="card-img">
-      <div class="card-body">
-        <h3>مكتبة 500+ أيقونة وصورة 3D</h3>
-        <p>ملفات جاهزة لاستخدامها في تصميم المواقع والتطبيقات والإعلانات.</p>
-        <div class="price-box">
-          <span class="price">5.00$</span>
-          <span class="old-price">9$</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button class="buy-btn" onclick="openPayment('حزمة الأيقونات والصور 3D', '5.00$', 'https://drive.google.com/drive/folders/رابط_الأيقونات_الثلاثية', 'أيقونات ثلاثية الأبعاد تزيد من جمال وجاذبية تصاميمك ومواقعك.')">شراء الآن</button>
-      </div>
-    </div>
-
-  </div>
-
-  <div id="payment-modal" class="modal">
+<div class="modal" id="orderModal">
     <div class="modal-content">
-      <h3 style="color:#0f172a;">إتمام عملية الشراء</h3>
-      <p style="font-size:14px; margin-top:5px;">المنتج: <strong id="selected-template" style="color:#2563eb;"></strong></p>
-      <p style="font-size:14px;">السعر المطلـوب: <strong id="selected-price" style="color:#16a34a;"></strong></p>
-      <div class="bank-box">
-        <p><strong>تطبيق الدفع:</strong> نيو كارد (New Card)</p>
-        <p><strong>رقم المحفظة:</strong> 62776</p>
-        <p><strong>اسم المستفيد:</strong> رمزي العربي</p>
-      </div>
-      <p style="font-size:12px; color:#64748b; margin-bottom:10px;">قم بتحويل المبلغ ثم ارسل اشعار الدفع</p>
-      <a id="whatsapp-link" href="#" target="_blank" class="wa-btn">إرسال إشعار الدفع عبر واتساب</a>
-      <button onclick="closePayment()" class="close-btn">إلغاء</button>
+        <span class="close-btn" onclick="closeModal('orderModal')">&times;</span>
+        <h3 style="color: var(--primary); margin-bottom: 10px;" id="modalProductName">اسم المنتج</h3>
+        <p style="font-size: 14px; margin-bottom: 15px;">السعر الإجمالي: <span id="modalProductPrice" style="font-weight: bold; color: var(--primary);"></span></p>
+        
+        <div class="form-group" style="margin-bottom: 12px;">
+            <label>اسم العميل:</label>
+            <input type="text" id="clientName" placeholder="أدخل الاسم">
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label>طريقة الدفع المفضلة:</label>
+            <select id="paymentMethod">
+                <option value="تحويل بنكي / الكريمي">تحويل بنكي / حساب الكريمي</option>
+                <option value="USDT / Binance Pay">USDT / Binance Pay</option>
+                <option value="Payeer">Payeer</option>
+                <option value="محفظة جوال (نيو كارد وغيرها)">محفظة جوال (نيو كارد وغيرها)</option>
+            </select>
+        </div>
+        <button class="btn-buy" onclick="confirmOrder()"><i class="fa-brands fa-whatsapp"></i> إرسال التفاصيل عبر الواتساب</button>
     </div>
-  </div>
+</div>
 
-  <footer>
-    <p>جميع الحقوق محفوظة © اصيل العربي - المتجر الرقمي الشامل 2026</p>
-  </footer>
+<div class="modal" id="adminModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('adminModal')">&times;</span>
+        
+        <div id="adminLoginStep">
+            <h3 style="color: var(--primary); margin-bottom: 15px;"><i class="fa-solid fa-lock"></i> دخول لوحة التحكم</h3>
+            <div class="form-group" style="margin-bottom: 12px;">
+                <label>كلمة المرور الإدارية:</label>
+                <input type="password" id="adminPassword" placeholder="أدخل كلمة المرور">
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>رقم الواتساب الخاص بك (مستقبل الطلبات):</label>
+                <input type="text" id="adminPhoneInput" placeholder="مثال: 967777069302">
+            </div>
+            <button class="btn-buy" style="background: var(--primary);" onclick="verifyAdmin()"><i class="fa-solid fa-right-to-bracket"></i> دخول اللوحة</button>
+        </div>
 
-  <script>
-    function filterCategory(category, evt) {
-      const cards = document.querySelectorAll('.card');
-      const buttons = document.querySelectorAll('.filter-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      if(evt) evt.target.classList.add('active');
-      cards.forEach(card => {
-        if (category === 'all' || card.classList.contains(category)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
+        <div id="adminPanelStep" style="display: none;">
+            <h3 style="color: var(--primary); margin-bottom: 15px;"><i class="fa-solid fa-plus-circle"></i> إضافة منتج جديد للمتجر</h3>
+            <form onsubmit="addNewProduct(event)">
+                <div class="form-group" style="margin-bottom: 10px;">
+                    <label>اسم المنتج:</label>
+                    <input type="text" id="newTitle" required placeholder="مثال: قالب تطبيق تواصل">
+                </div>
+                <div class="form-group" style="margin-bottom: 10px;">
+                    <label>السعر ($):</label>
+                    <input type="number" id="newPrice" required placeholder="مثال: 45">
+                </div>
+                <div class="form-group" style="margin-bottom: 10px;">
+                    <label>التصنيف:</label>
+                    <select id="newCat">
+                        <option value="websites">قوالب مواقع</option>
+                        <option value="design">حزم تصميم</option>
+                        <option value="books">كتب ودورات</option>
+                        <option value="services">خدمات وأدوات</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 10px;">
+                    <label>رابط الصورة (URL):</label>
+                    <input type="url" id="newImg" required placeholder="https://images.unsplash.com/...">
+                </div>
+                <div class="form-group" style="margin-bottom: 10px;">
+                    <label>اسم الملف المرتبط (File Name):</label>
+                    <input type="text" id="newFile" required placeholder="مثال: new-pack.zip">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>الوصف:</label>
+                    <textarea id="newDesc" rows="3" required placeholder="شرح مختصر للمنتج..."></textarea>
+                </div>
+                <button type="submit" class="btn-buy" style="background: var(--secondary);"><i class="fa-solid fa-save"></i> حفظ ونشر المنتج</button>
+            </form>
+            <button onclick="logoutAdmin()" style="margin-top: 15px; background: transparent; color: #ef4444; border: none; cursor: pointer; font-size: 13px; font-weight: bold;"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج من اللوحة</button>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toastMsg">تم النسخ بنجاح! جاهز للإرسال للعميل</div>
+
+<footer class="footer">
+    <p><i class="fa-solid fa-shield-halved"></i> جميع المعاملات والمنتجات تسلم فوراً بعد الدفع.</p>
+    <p style="margin-top: 5px; opacity: 0.8; font-size: 13px;">© 2026 أصيل العربي - جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+    let whatsappNumber = localStorage.getItem('owner_whatsapp') || "967777069302";
+    let isAdmin = localStorage.getItem('is_admin') === 'true';
+
+    // قائمة الـ 80 منتجاً المتكاملة
+    const defaultProducts = [
+        // --- قوالب مواقع جاهزة (15) ---
+        { id: 'w1', cat: 'websites', title: 'قالب موقع مطعم', price: 50, file: 'template-restaurant.zip', img: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400', desc: 'تصميم متجاوب لعرض قائمة الوجبات مع نظام طلب مباشر.' },
+        { id: 'w2', cat: 'websites', title: 'قالب متجر الكتروني', price: 80, file: 'template-store.zip', img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400', desc: 'متجر عصري متكامل مع سلة تسوق وخيارات فلترة.' },
+        { id: 'w3', cat: 'websites', title: 'قالب شركة 5 صفحات', price: 100, file: 'template-company.zip', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400', desc: 'موقع تعريفي احترافي للشركات والمؤسسات.' },
+        { id: 'w4', cat: 'websites', title: 'قالب Portfolio شخصي', price: 40, file: 'template-portfolio.zip', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400', desc: 'معرض أعمال سيرتك الذاتية جذاب وسريع التحميل.' },
+        { id: 'w5', cat: 'websites', title: 'قالب عقارات', price: 90, file: 'template-realestate.zip', img: 'https://images.unsplash.com/photo-1515879218367-8464d17a1efa?w=400', desc: 'عرض العقارات والشقق مع محرك بحث وتواصل مدمج.' },
+        { id: 'w6', cat: 'websites', title: 'قالب عيادة طبية', price: 60, file: 'template-clinic.zip', img: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400', desc: 'تصميم نقي للخدمات الطبية وحجز المواعيد.' },
+        { id: 'w7', cat: 'websites', title: 'قالب مدرسة', price: 70, file: 'template-school.zip', img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400', desc: 'موقع مؤسسة تعليمية لعرض المواد والمدرسين.' },
+        { id: 'w8', cat: 'websites', title: 'قالب صالة رياضية', price: 55, file: 'template-gym.zip', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400', desc: 'عرض الاشتراكات والأنشطة الرياضية بجاذبية.' },
+        { id: 'w9', cat: 'websites', title: 'قالب مصور فوتوغرافي', price: 45, file: 'template-photographer.zip', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400', desc: 'معرض صور بتأثيرات بصرية عصرية.' },
+        { id: 'w10', cat: 'websites', title: 'قالب مدونة', price: 35, file: 'template-blog.zip', img: 'https://images.unsplash.com/photo-1515879218367-8464d17a1efa?w=400', desc: 'قالب مخصص للمقالات والأخبار سريع ومتهيء للـ SEO.' },
+        { id: 'w11', cat: 'websites', title: '10 قوالب HTML متنوعة', price: 25, file: '10-templates.zip', img: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400', desc: 'مجموعة قوالب HTML5 متعددة الاستخدامات.' },
+        { id: 'w12', cat: 'websites', title: 'قالب صفحة هبوط', price: 30, file: 'template-landing.zip', img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400', desc: 'صفحة هبوط مخصصة لزيادة المبيعات والتحويلات.' },
+        { id: 'w13', cat: 'websites', title: 'قالب موقع اخبار', price: 110, file: 'template-news.zip', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400', desc: 'بوابة إخبارية كاملة التقسيمات مع أماكن للإعلانات.' },
+        { id: 'w14', cat: 'websites', title: 'قالب وكالة سفر', price: 65, file: 'template-travel.zip', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400', desc: 'عرض الرحلات السياحية وحجوزات الفنادق.' },
+        { id: 'w15', cat: 'websites', title: 'قالب لوحة تحكم Admin', price: 40, file: 'template-admin.zip', img: 'https://images.unsplash.com/photo-1515879218367-8464d17a1efa?w=400', desc: 'واجهة خلفية منظمة لإدارة البيانات والإحصائيات.' },
+
+        // --- حزم تصميم جاهزة (25) ---
+        { id: 'd1', cat: 'design', title: '500 قالب منشور انستا', price: 15, file: 'pack-instagram.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'قوالب سوشيال ميديا قابلة للتعديل على Canva وPhotoshop.' },
+        { id: 'd2', cat: 'design', title: '100 لوجو جاهز للتعديل', price: 12, file: 'pack-logos.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'شعارات فيكتور جاهزة بمختلف التخصصات.' },
+        { id: 'd3', cat: 'design', title: '1000 صورة ستوك عالية الجودة', price: 10, file: 'pack-images.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'مكتبة صور احترافية بدون حقوق طبع ونشر.' },
+        { id: 'd4', cat: 'design', title: '500 ايقونة فيكتور', price: 8, file: 'pack-icons.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'أيقونات بدقة عالية للتطبيقات والمواقع.' },
+        { id: 'd5', cat: 'design', title: '50 قالب باوربوينت', price: 9, file: 'pack-ppt.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'عروض تقديمية احترافية للشركات والطلاب.' },
+        { id: 'd6', cat: 'design', title: '100 خط عربي احترافي', price: 7, file: 'pack-fonts.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'أجمل الخطوط العربية للتصميم والمونتاج.' },
+        { id: 'd7', cat: 'design', title: '200 قالب ستوري', price: 10, file: 'pack-stories.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'قصص انستغرام وواتساب متناسقة وجذابة.' },
+        { id: 'd8', cat: 'design', title: '50 قالب شهادة تقدير', price: 6, file: 'pack-certificates.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'قوالب شهادات قابلة للتعديل والطباعة.' },
+        { id: 'd9', cat: 'design', title: '100 قالب منيو مطعم', price: 14, file: 'pack-menu.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'تصاميم لائحة طعام عصرية وجاهزة.' },
+        { id: 'd10', cat: 'design', title: '300 مؤثر صوتي للمونتاج', price: 11, file: 'pack-sounds.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'مؤثرات صوتية نقية لإنتاج الفيديوهات.' },
+        { id: 'd11', cat: 'design', title: '50 قالب ريلز احترافي', price: 13, file: 'pack-reels.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'قوالب فيديو قصيرة لمحتوى TikTok وReels.' },
+        { id: 'd12', cat: 'design', title: '1000 خلفية موبايل 4K', price: 5, file: 'pack-wallpapers.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'خلفيات فائقة الوضوح للهواتف.' },
+        { id: 'd13', cat: 'design', title: '200 موك اب Mockup', price: 16, file: 'pack-mockup.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'نماذج عرض المنتجات والهويات البصرية.' },
+        { id: 'd14', cat: 'design', title: '50 قالب سيرة ذاتية CV', price: 8, file: 'pack-cv.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'نماذج CV احترافية تضمن قبولك بالعمل.' },
+        { id: 'd15', cat: 'design', title: '100 قالب بطاقة عمل', price: 9, file: 'pack-businesscard.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'تصاميم كروت شخصية قابلة للتعديل.' },
+        { id: 'd16', cat: 'design', title: '500 صورة منتجات مفرغة', price: 12, file: 'pack-products.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'عناصر منتجات بدون خلفية للتصميم التجاري.' },
+        { id: 'd17', cat: 'design', title: '100 قالب اعلان تسويقي', price: 10, file: 'pack-ads.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'بنرات إعلانية تزيد من نسبة التفاعل.' },
+        { id: 'd18', cat: 'design', title: '50 قالب فاتورة طباعة', price: 6, file: 'pack-invoice.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'نماذج فواتير رسمية تجارية.' },
+        { id: 'd19', cat: 'design', title: '1000 خط انجليزي مميز', price: 8, file: 'pack-enfonts.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'مجموعة خطوط لاتينية عصرية.' },
+        { id: 'd20', cat: 'design', title: '200 فيديو ستوك HD', price: 20, file: 'pack-videos.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'مقاطع فيديو للمونتاج والإعلانات.' },
+        { id: 'd21', cat: 'design', title: 'حزمة فرش فوتوشوب', price: 11, file: 'pack-psbrushes.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'فرش احترافية للرسم الدمج والتصميم.' },
+        { id: 'd22', cat: 'design', title: 'فلترات Lightroom للتعديل', price: 14, file: 'pack-lightroom.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'تعديلات ألوان سريعة بضغطة زر للصورة.' },
+        { id: 'd23', cat: 'design', title: '100 قالب غلاف يوتيوب', price: 10, file: 'pack-ytbanners.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'بنرات قنوات يوتيوب احترافية.' },
+        { id: 'd24', cat: 'design', title: '50 قالب مصغرة يوتيوب', price: 9, file: 'pack-thumbnails.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'تصاميم مصغرات لزيادة المشاهدات.' },
+        { id: 'd25', cat: 'design', title: 'حزمة انتقالات فيديو للمونتاج', price: 18, file: 'pack-transitions.zip', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'مؤثرات الانتقال بين المشاهد الاحترافية.' },
+
+        // --- كتب ودورات PDF (20) ---
+        { id: 'b1', cat: 'books', title: 'كتاب الربح من الانترنت', price: 7, file: 'book-profit.pdf', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'دليل شامل لطرق العمل الحر والربح الرقمي.' },
+        { id: 'b2', cat: 'books', title: 'دورة تصميم المواقع', price: 25, file: 'course-design.zip', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400', desc: 'شروحات وملفات عمل تعليم برمجة المواقع.' },
+        { id: 'b3', cat: 'books', title: 'كتاب التسويق الرقمي', price: 9, file: 'book-marketing.pdf', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'استراتيجيات استهداف العملاء وتحقيق المبيعات.' },
+        { id: 'b4', cat: 'books', title: 'دورة المونتاج بالجوال', price: 15, file: 'course-editing.zip', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400', desc: 'احترف تعديل الفيديوهات من هاتفك مباشرة.' },
+        { id: 'b5', cat: 'books', title: 'كتاب 100 فكرة مشروع', price: 4, file: 'book-ideas.pdf', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'أفكار مشاريع مربحة برأس مال صغير.' },
+        { id: 'b6', cat: 'books', title: 'دورة بايثون للمبتدئين', price: 30, file: 'course-python.zip', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400', desc: 'تعلم أساسيات البرمجة ولغة Python خطوة بخطوة.' },
+        { id: 'b7', cat: 'books', title: 'دليل اسعار الشحن في اليمن', price: 3, file: 'guide-shipping.pdf', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'معلومات تفصيلية حول شركات الشحن والأسعار.' },
+        { id: 'b8', cat: 'books', title: 'كتاب الذكاء الاصطناعي', price: 12, file: 'book-ai.pdf', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400', desc: 'طرق استغلال أدوات AI لتسريع عملك.' },
+        { id: 'b9', cat: 'books', title: '1000 جملة تسويقية جاذبة', price: 5, file: 'book-sentences.pdf', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'عبارات بيعية قوية لتحسين النصوص الإعلانية.' },
+        { id: 'b10', cat: 'books', title: 'دورة ادارة صفحات التواصل', price: 18, file: 'course-social.zip', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400', desc: 'كيف تصبح Social Media Manager محترف.' },
+        { id: 'b11', cat: 'books', title: 'كتاب تصميم ب Canva', price: 6, file: 'book-canva.pdf', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'شرح أسرار منصة كانفا بالتفصيل.' },
+        { id: 'b12', cat: 'books', title: 'دورة كتابة المحتوى', price: 14, file: 'course-writing.zip', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400', desc: 'فن صياغة المحتوى الذي يجذب الجمهور.' },
+        { id: 'b13', cat: 'books', title: '50 عقد عمل جاهز', price: 10, file: 'contracts.zip', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'نماذج عقود قانونية وتجارية قابلة للتعديل.' },
+        { id: 'b14', cat: 'books', title: 'دليل التجارة الالكترونية', price: 11, file: 'guide-ecommerce.pdf', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400', desc: 'خطوات بناء متجرك الإلكتروني الناجح.' },
+        { id: 'b15', cat: 'books', title: '100 اقتباس تحفيزي', price: 2, file: 'book-quotes.pdf', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'مقولات واقتباسات لصناع المحتوى.' },
+        { id: 'b16', cat: 'books', title: 'دليل العمل الحر والتفريغ', price: 8, file: 'guide-freelance.pdf', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'بدء العمل عبر منصات الخدمات المصغرة.' },
+        { id: 'b17', cat: 'books', title: 'دورة اعلانات فيسبوك', price: 22, file: 'course-fb-ads.zip', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400', desc: 'إدارة الحملات الإعلانية المدفوعة على Facebook.' },
+        { id: 'b18', cat: 'books', title: 'كتاب أساسيات الأمن السيبراني', price: 13, file: 'book-cyber.pdf', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'دليل حماية الحسابات والبيانات الشخصية.' },
+        { id: 'b19', cat: 'books', title: 'دورة سيو SEO المتكاملة', price: 20, file: 'course-seo.zip', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400', desc: 'تصدر نتائج محركات البحث لموقعك.' },
+        { id: 'b20', cat: 'books', title: 'دليل إنشاء المتاجر الإلكترونية', price: 9, file: 'guide-stores.pdf', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'كل ما تحتاجه لبدء بيع المنتجات أونلاين.' },
+
+        // --- خدمات وأدوات (20) ---
+        { id: 's1', cat: 'services', title: 'تصميم موقع خلال 24س', price: 200, file: 'service-website.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'خدمة تطوير موقع ويب سريع واحترافي.' },
+        { id: 's2', cat: 'services', title: 'تصميم لوجو احترافي', price: 30, file: 'service-logo.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تصميم شعار مميز يعبر عن هويتك.' },
+        { id: 's3', cat: 'services', title: 'ادارة صفحة انستا شهر', price: 100, file: 'service-instagram.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'إدارة وتنشيط الحساب ونشر المحتوى.' },
+        { id: 's4', cat: 'services', title: '10 منشورات جاهزة', price: 20, file: 'service-posts.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'كتابة وتصميم 10 منشورات لنشاطك.' },
+        { id: 's5', cat: 'services', title: 'مونتاج فيديو 1 دقيقة', price: 25, file: 'service-video.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تعديل وتجهيز فيديو احترافي.' },
+        { id: 's6', cat: 'services', title: 'كتابة مقال SEO', price: 8, file: 'service-article.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'مقال متوافق مع محركات البحث.' },
+        { id: 's7', cat: 'services', title: 'ترجمة 1000 كلمة', price: 15, file: 'service-translate.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'ترجمة بشرية دقيقة ومتقنة.' },
+        { id: 's8', cat: 'services', title: 'بوت واتساب جاهز', price: 50, file: 'bot-whatsapp.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'برمجة الرد الآلي على استفسارات العملاء.' },
+        { id: 's9', cat: 'services', title: 'استشارة برمجة 1 ساعة', price: 20, file: 'service-consult.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'جلسة استشارية لحل المشاكل البرمجية.' },
+        { id: 's10', cat: 'services', title: 'تصميم هوية بصرية كاملة', price: 80, file: 'service-branding.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'شعار، كروت، وألوان مشروعك المتكاملة.' },
+        { id: 's11', cat: 'services', title: 'رفع موقع على الاستضافة', price: 15, file: 'service-hosting.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'ربط الدومين والاستضافة وتهيئة الموقع.' },
+        { id: 's12', cat: 'services', title: 'صيانة موقع لمدة شهر', price: 60, file: 'service-maintenance.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'متابعة الدعم الفني والحماية النسخ الاحتياطي.' },
+        { id: 's13', cat: 'services', title: 'إعلانات جوجل Google Ads', price: 70, file: 'service-googleads.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'إعداد حملة إعلانية مستهدفة.' },
+        { id: 's14', cat: 'services', title: 'تصميم متجر شوبي فاي', price: 150, file: 'service-shopify.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'بناء متجر إلكتروني متكامل على Shopify.' },
+        { id: 's15', cat: 'services', title: 'انشاء سيرفر ديسكورد', price: 10, file: 'service-discord.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تجهيز السيرفر بالرتب والبوتات.' },
+        { id: 's16', cat: 'services', title: 'تحليل منافسين شامل', price: 35, file: 'service-analysis.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تقرير مفصل عن نقاط قوة وصفحات المنافسين.' },
+        { id: 's17', cat: 'services', title: 'كتابة سيرة ذاتية احترافية', price: 12, file: 'service-cv.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'صياغة الـ CV بأسلوب جذاب للشركات.' },
+        { id: 's18', cat: 'services', title: 'تصميم عرض تقديمي PPT', price: 18, file: 'service-presentation.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تجهيز شرايح PowerPoint مخصصة.' },
+        { id: 's19', cat: 'services', title: 'انشاء متجر واتساب', price: 40, file: 'service-wastore.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'كتالوج منتجات مدمج مع الواتساب.' },
+        { id: 's20', cat: 'services', title: 'دومين .com لمدة سنة', price: 12, file: 'service-domain.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'حجز نطاق عالمي باسم مشروعك.' }
+    ];
+
+    let products = JSON.parse(localStorage.getItem('store_products')) || defaultProducts;
+
+    window.onload = function() {
+        renderProducts(products);
+        if(localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('themeBtn').innerHTML = '<i class="fa-solid fa-sun"></i> <span>النمط الفاتح</span>';
         }
-      });
+        checkAdminUI();
+    };
+
+    function renderProducts(items) {
+        const container = document.getElementById('products-container');
+        container.innerHTML = '';
+        
+        items.forEach(prod => {
+            const card = document.createElement('div');
+            card.className = `card item-category`;
+            card.setAttribute('data-cat', prod.cat);
+            card.setAttribute('data-id', prod.id);
+
+            card.innerHTML = `
+                ${isAdmin ? '<span class="owner-badge" style="display:block;">مالك المتجر</span>' : ''}
+                <img src="${prod.img}" alt="${prod.title}">
+                <div class="card-body">
+                    <div>
+                        <h3>${prod.title}</h3>
+                        <p>${prod.desc}</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">${prod.price} $</div>
+                        <div class="card-actions">
+                            <button class="btn-buy" onclick="openOrderModal('${prod.title}', ${prod.price})">
+                                <i class="fa-brands fa-whatsapp"></i> طلب / شراء الآن
+                            </button>
+                            <div class="btn-group-owner">
+                                <button class="btn-share" onclick="shareProductLink('${prod.title}', '${prod.file}')">
+                                    <i class="fa-solid fa-copy"></i> نسخ رابط الإرسال
+                                </button>
+                                ${isAdmin ? `<button class="btn-delete" onclick="deleteProduct('${prod.id}')"><i class="fa-solid fa-trash"></i></button>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
     }
 
-    function openPayment(itemName, price, downloadUrl, customReply) {
-      document.getElementById('selected-template').innerText = itemName;
-      document.getElementById('selected-price').innerText = price;
-      
-      var message = customReply + "\n\nقمت بتحويل مبلغ (" + price + ") لشراء (" + itemName + ").\n\nوهذا إشعار التحويل المرفق.\n\n[رابط التحميل الخاص بهذا المنتج]:\n" + downloadUrl;
-      
-      var whatsappUrl = "https://wa.me/967777069302?text=" + encodeURIComponent(message);
-      document.getElementById('whatsapp-link').href = whatsappUrl;
-      document.getElementById('payment-modal').style.display = 'block';
+    function filterCategory(cat, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const cryptoBox = document.querySelector('.crypto-box');
+        if(cat === 'crypto') {
+            cryptoBox.style.display = 'block';
+            document.getElementById('products-container').style.display = 'none';
+        } else {
+            cryptoBox.style.display = (cat === 'all') ? 'block' : 'none';
+            document.getElementById('products-container').style.display = 'grid';
+            
+            const filtered = (cat === 'all') ? products : products.filter(p => p.cat === cat);
+            renderProducts(filtered);
+        }
     }
 
-    function closePayment() {
-      document.getElementById('payment-modal').style.display = 'none';
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        document.getElementById('themeBtn').innerHTML = isDark ? 
+            '<i class="fa-solid fa-sun"></i> <span>النمط الفاتح</span>' : 
+            '<i class="fa-solid fa-moon"></i> <span>النمط الداكن</span>';
     }
-  </script>
+
+    function shareProductLink(title, file) {
+        let link = `https://anmhmcd-cpu.github.io/downloads/${file}`;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(link);
+            showToast("تم نسخ رابط: " + title + "\n\nالان الصقه للعميل في واتساب بعد ما يحول الفلوس");
+        } else {
+            alert("رابط التحميل: " + link);
+        }
+    }
+
+    let currentProd = { name: '', price: 0 };
+    function openOrderModal(name, price) {
+        currentProd = { name, price };
+        document.getElementById('modalProductName').innerText = name;
+        document.getElementById('modalProductPrice').innerText = price + " $";
+        document.getElementById('orderModal').style.display = 'flex';
+    }
+
+    function confirmOrder() {
+        const client = document.getElementById('clientName').value.trim() || "عميل محترم";
+        const method = document.getElementById('paymentMethod').value;
+
+        const msg = `مرحباً أصيل العربي 👋%0A` +
+                    `طلب منتج رقمي جديدة:%0A` +
+                    `المنتج: *${currentProd.name}*%0A` +
+                    `السعر: *${currentProd.price} $*%0A` +
+                    `اسم العميل: *${client}*%0A` +
+                    `طريقة التحويل المفضلة: *${method}*`;
+
+        window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
+        closeModal('orderModal');
+    }
+
+    function handleCryptoSubmit(e) {
+        e.preventDefault();
+        const type = document.getElementById('cryptoType').value;
+        const amount = document.getElementById('cryptoAmount').value;
+        const address = document.getElementById('cryptoAddress').value;
+
+        const msg = `مرحباً أصيل العربي 👋%0A` +
+                    `طلب شحن عملات رقمية:%0A` +
+                    `النوع/الخدمة: *${type}*%0A` +
+                    `الكمية المطلوبة: *${amount} $*%0A` +
+                    `العنوان / ID المحفظة: *${address}*`;
+
+        window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
+    }
+
+    function openAdminModal() {
+        document.getElementById('adminModal').style.display = 'flex';
+        document.getElementById('adminPhoneInput').value = whatsappNumber;
+    }
+
+    function verifyAdmin() {
+        const pass = document.getElementById('adminPassword').value;
+        const phone = document.getElementById('adminPhoneInput').value.trim();
+
+        if (pass === "123456" || pass === "admin") {
+            isAdmin = true;
+            localStorage.setItem('is_admin', 'true');
+            if(phone) {
+                whatsappNumber = phone;
+                localStorage.setItem('owner_whatsapp', phone);
+            }
+            checkAdminUI();
+            showToast("تم تسجيل الدخول بنجاح كمالك للمتجر!");
+        } else {
+            alert("كلمة المرور غير صحيحة! (الافتراضية: 123456)");
+        }
+    }
+
+    function checkAdminUI() {
+        if(isAdmin) {
+            document.getElementById('adminLoginStep').style.display = 'none';
+            document.getElementById('adminPanelStep').style.display = 'block';
+        } else {
+            document.getElementById('adminLoginStep').style.display = 'block';
+            document.getElementById('adminPanelStep').style.display = 'none';
+        }
+        renderProducts(products);
+    }
+
+    function logoutAdmin() {
+        isAdmin = false;
+        localStorage.setItem('is_admin', 'false');
+        checkAdminUI();
+        closeModal('adminModal');
+        showToast("تم تسجيل الخروج.");
+    }
+
+    function addNewProduct(e) {
+        e.preventDefault();
+        const newP = {
+            id: 'p_' + Date.now(),
+            title: document.getElementById('newTitle').value,
+            price: parseFloat(document.getElementById('newPrice').value),
+            cat: document.getElementById('newCat').value,
+            img: document.getElementById('newImg').value,
+            file: document.getElementById('newFile').value,
+            desc: document.getElementById('newDesc').value
+        };
+
+        products.unshift(newP);
+        localStorage.setItem('store_products', JSON.stringify(products));
+        renderProducts(products);
+        closeModal('adminModal');
+        showToast("تم إضافة المنتج الجديد بنجاح!");
+        e.target.reset();
+    }
+
+    function deleteProduct(id) {
+        if(confirm("هل أنت تأكد من حذف هذا المنتج من المتجر؟")) {
+            products = products.filter(p => p.id !== id);
+            localStorage.setItem('store_products', JSON.stringify(products));
+            renderProducts(products);
+            showToast("تم حذف المنتج.");
+        }
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toastMsg');
+        toast.innerText = msg;
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 3000);
+    }
+</script>
 
 </body>
 </html>
