@@ -543,8 +543,10 @@
     }
 
     function shareProductLink(title, file) {
-        let link = `https://anmhmcd-cpu.github.io/downloads/${file}`;
-        if (navigator.clipboard) {
+          let link = 'https://alrbysadqthmanmhmd-cpu.github.io/aseel-site/downloads/' + file;
+ 
+
+       if (navigator.clipboard) {
             navigator.clipboard.writeText(link);
             showToast("تم نسخ رابط: " + title + "\n\nالان الصقه للعميل في واتساب بعد ما يحول الفلوس");
         } else {
