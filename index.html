@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أصيل العربي | المتجر الرقمي المتكامل ولائحة التحكم</title>
-<meta name="impact-site-verification" content="6ace1f74-beee-45f1-8380-13dda21fe7cb">
+    <title>أصيل العربي | المتجر الرقمي المتكامل للتحميل المباشر</title>
+    <meta name="impact-site-verification" content="6ace1f74-beee-45f1-8380-13dda21fe7cb">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -73,6 +73,9 @@
         .header h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
         .header p { font-size: 15px; opacity: 0.9; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 
+        .ad-space { background: #e2e8f0; border: 2px dashed #cbd5e1; text-align: center; padding: 15px; margin: 20px auto; max-width: 1200px; border-radius: 10px; color: #64748b; font-weight: bold; }
+        body.dark-mode .ad-space { background: #1e293b; border-color: #334155; color: #94a3b8; }
+
         .filters {
             display: flex;
             justify-content: center;
@@ -120,9 +123,27 @@
         .card-actions { display: flex; flex-direction: column; gap: 8px; }
         .btn-group-owner { display: flex; gap: 6px; }
         
+        .btn-download {
+            width: 100%;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14.5px;
+            text-decoration: none;
+        }
+        .btn-download:hover { opacity: 0.9; }
+
         .btn-buy {
             width: 100%;
-            background: var(--whatsapp);
+            background: var(--primary);
             color: white;
             border: none;
             padding: 10px;
@@ -168,7 +189,7 @@
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 24px;
-            margin: 35px 0;
+            margin: 25px 0 35px;
         }
         .crypto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; margin-top: 15px; }
         .form-group { display: flex; flex-direction: column; gap: 6px; text-align: right; }
@@ -181,6 +202,15 @@
             outline: none;
             background: var(--bg);
             color: var(--text);
+        }
+
+        .neocard-alert {
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid var(--primary);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         .toast {
@@ -238,20 +268,16 @@
 
 <header class="header">
     <h1>متجر أصيل العربي الرقمي</h1>
-    <p>80 منتج رقمي متكامل - قوالب مواقع، حزم تصميم، كتب ودورات، خدمات برمجية وشحن عملات تسلم فورياً.</p>
+    <p>أثرى مكتبة للمنتجات الرقمية - تنزيل تلقائي فوري بعد الدفع عبر محفظة نيو كارد أو الشحن المباشر.</p>
 </header>
 
-<div class="filters">
-    <button class="filter-btn active" onclick="filterCategory('all', this)">الكل (80)</button>
-    <button class="filter-btn" onclick="filterCategory('websites', this)">قوالب مواقع (15)</button>
-    <button class="filter-btn" onclick="filterCategory('design', this)">حزم تصميم (25)</button>
-    <button class="filter-btn" onclick="filterCategory('books', this)">كتب ودورات (20)</button>
-    <button class="filter-btn" onclick="filterCategory('services', this)">خدمات وأدوات (20)</button>
-    <button class="filter-btn" onclick="filterCategory('crypto', this)">شحن عملات</button>
+<div class="ad-space">
+    <i class="fa-solid fa-rectangle-ad"></i> مساحة مخصصة لإعلانات Google AdSense للربح
 </div>
 
 <main class="container">
 
+    <!-- قسم شحن العملات والرصيد -->
     <div class="crypto-box item-category" data-cat="crypto">
         <h2 style="color: var(--primary); font-size: 20px; margin-bottom: 5px;"><i class="fa-solid fa-wallet"></i> خدمة شحن العملات الرقمية والرصيد</h2>
         <p style="font-size: 13px; color: var(--text-muted);">ادخل بيانات الشحن الخاصة بك أو الخاصة بالعميل لإرسال الطلب فوراً عبر واتساب.</p>
@@ -275,40 +301,50 @@
                 <input type="text" id="cryptoAddress" placeholder="أدخل العنوان أو المعرف هنا" required>
             </div>
             <div class="form-group" style="justify-content: flex-end;">
-                <button type="submit" class="btn-buy" style="height: 42px;">
+                <button type="submit" class="btn-buy" style="height: 42px; background: var(--whatsapp);">
                     <i class="fa-brands fa-whatsapp"></i> إرسال طلب الشحن
                 </button>
             </div>
         </form>
     </div>
 
+    <!-- الفلاتر -->
+    <div class="filters">
+        <button class="filter-btn active" onclick="filterCategory('all', this)">الكل (83)</button>
+        <button class="filter-btn" onclick="filterCategory('websites', this)">قوالب مواقع (15)</button>
+        <button class="filter-btn" onclick="filterCategory('design', this)">حزم تصميم (26)</button>
+        <button class="filter-btn" onclick="filterCategory('books', this)">كتب ودورات (21)</button>
+        <button class="filter-btn" onclick="filterCategory('services', this)">خدمات وأدوات (20)</button>
+        <button class="filter-btn" onclick="filterCategory('crypto', this)">شحن عملات</button>
+    </div>
+
+    <!-- شبكة عرض المنتجات -->
     <div id="products-container" class="products-grid"></div>
 
 </main>
 
+<!-- نافذة إدخال رقم الحوالة للتنزيل التلقائي -->
 <div class="modal" id="orderModal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal('orderModal')">&times;</span>
         <h3 style="color: var(--primary); margin-bottom: 10px;" id="modalProductName">اسم المنتج</h3>
-        <p style="font-size: 14px; margin-bottom: 15px;">السعر الإجمالي: <span id="modalProductPrice" style="font-weight: bold; color: var(--primary);"></span></p>
+        <p style="font-size: 14px; margin-bottom: 15px;">السعر المطلوب: <span id="modalProductPrice" style="font-weight: bold; color: var(--primary);"></span></p>
         
-        <div class="form-group" style="margin-bottom: 12px;">
-            <label>اسم العميل:</label>
-            <input type="text" id="clientName" placeholder="أدخل الاسم">
+        <div class="neocard-alert">
+            <p style="font-size: 13px; font-weight: 700; color: var(--primary);">قم بالتحويل أولاً إلى محفظة نيو كارد:</p>
+            <p style="font-size: 18px; font-weight: 800; color: #111827; margin: 4px 0;">62776</p>
+            <p style="font-size: 11px; color: var(--text-muted);">ثم ادخل رقم الحوالة أدناه للتنزيل المباشر والتلقائي</p>
         </div>
+
         <div class="form-group" style="margin-bottom: 15px;">
-            <label>طريقة الدفع المفضلة:</label>
-            <select id="paymentMethod">
-                <option value="تحويل بنكي / الكريمي">تحويل بنكي / حساب الكريمي</option>
-                <option value="USDT / Binance Pay">USDT / Binance Pay</option>
-                <option value="Payeer">Payeer</option>
-                <option value="محفظة جوال (نيو كارد وغيرها)">محفظة جوال (نيو كارد وغيرها)</option>
-            </select>
+            <label>رقم الحوالة / العملية (Transaction ID):</label>
+            <input type="text" id="transNumber" placeholder="مثال: 987654321" required>
         </div>
-        <button class="btn-buy" onclick="confirmOrder()"><i class="fa-brands fa-whatsapp"></i> إرسال التفاصيل عبر الواتساب</button>
+        <button class="btn-download" onclick="confirmAutoDownload()"><i class="fa-solid fa-cloud-arrow-down"></i> تأكيد الحوالة والتنزيل الفوري</button>
     </div>
 </div>
 
+<!-- نافذة لوحة التحكم -->
 <div class="modal" id="adminModal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal('adminModal')">&times;</span>
@@ -334,7 +370,7 @@
                     <input type="text" id="newTitle" required placeholder="مثال: قالب تطبيق تواصل">
                 </div>
                 <div class="form-group" style="margin-bottom: 10px;">
-                    <label>السعر ($):</label>
+                    <label>السعر ($) (ضع 0 للمجاني):</label>
                     <input type="number" id="newPrice" required placeholder="مثال: 45">
                 </div>
                 <div class="form-group" style="margin-bottom: 10px;">
@@ -351,8 +387,8 @@
                     <input type="url" id="newImg" required placeholder="https://images.unsplash.com/...">
                 </div>
                 <div class="form-group" style="margin-bottom: 10px;">
-                    <label>اسم الملف المرتبط (File Name):</label>
-                    <input type="text" id="newFile" required placeholder="مثال: new-pack.zip">
+                    <label>اسم أو رابط الملف (ZIP / APK / URL):</label>
+                    <input type="text" id="newFile" required placeholder="مثال: new-pack.zip أو رابط Mega">
                 </div>
                 <div class="form-group" style="margin-bottom: 15px;">
                     <label>الوصف:</label>
@@ -365,10 +401,10 @@
     </div>
 </div>
 
-<div class="toast" id="toastMsg">تم النسخ بنجاح! جاهز للإرسال للعميل</div>
+<div class="toast" id="toastMsg">تم النسخ بنجاح!</div>
 
 <footer class="footer">
-    <p><i class="fa-solid fa-shield-halved"></i> جميع المعاملات والمنتجات تسلم فوراً بعد الدفع.</p>
+    <p><i class="fa-solid fa-shield-halved"></i> جميع المنتجات الرقمية والملفات تسلم فوراً بالتنزيل التلقائي.</p>
     <p style="margin-top: 5px; opacity: 0.8; font-size: 13px;">© 2026 أصيل العربي - جميع الحقوق محفوظة</p>
 </footer>
 
@@ -376,8 +412,16 @@
     let whatsappNumber = localStorage.getItem('owner_whatsapp') || "967777069302";
     let isAdmin = localStorage.getItem('is_admin') === 'true';
 
-    // قائمة الـ 80 منتجاً المتكاملة
+    // مسار مجلد التحميلات التلقائي الخاص بموقعك على GitHub
+    const BASE_DOWNLOAD_URL = 'https://alrbysadqthmanmhmd-cpu.github.io/aseel-site/downloads/';
+
+    // قائمة المنتجات الرقمية الكاملة المدمجة (83 منتجاً)
     const defaultProducts = [
+        // --- منتجات الكود الأول المجانية والمدفوعة ---
+        { id: 'm1', cat: 'books', title: 'تطبيق تنظيم الوقت (APK)', price: 0, file: 'https://mega.nz', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400', desc: 'تطبيق مجاني للتحميل المباشر APK.' },
+        { id: 'm2', cat: 'websites', title: 'قالب متجر إلكتروني احترافي', price: 30, file: 'template-store-pro.zip', img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400', desc: 'قالب متكامل جاهز مع نظام تنزيل تلقائي. الدفع عبر نيو كارد.' },
+        { id: 'm3', cat: 'design', title: 'حزمة 500 خط عربي (Zip)', price: 0, file: 'https://mega.nz', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'تحميل مباشر مجاني لجميع الخطوط العربية الاحترافية.' },
+
         // --- قوالب مواقع جاهزة (15) ---
         { id: 'w1', cat: 'websites', title: 'قالب موقع مطعم', price: 50, file: 'template-restaurant.zip', img: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400', desc: 'تصميم متجاوب لعرض قائمة الوجبات مع نظام طلب مباشر.' },
         { id: 'w2', cat: 'websites', title: 'قالب متجر الكتروني', price: 80, file: 'template-store.zip', img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400', desc: 'متجر عصري متكامل مع سلة تسوق وخيارات فلترة.' },
@@ -445,26 +489,26 @@
         { id: 'b20', cat: 'books', title: 'دليل إنشاء المتاجر الإلكترونية', price: 9, file: 'guide-stores.pdf', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400', desc: 'كل ما تحتاجه لبدء بيع المنتجات أونلاين.' },
 
         // --- خدمات وأدوات (20) ---
-        { id: 's1', cat: 'services', title: 'تصميم موقع خلال 24س', price: 200, file: 'service-website.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'خدمة تطوير موقع ويب سريع واحترافي.' },
-        { id: 's2', cat: 'services', title: 'تصميم لوجو احترافي', price: 30, file: 'service-logo.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تصميم شعار مميز يعبر عن هويتك.' },
-        { id: 's3', cat: 'services', title: 'ادارة صفحة انستا شهر', price: 100, file: 'service-instagram.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'إدارة وتنشيط الحساب ونشر المحتوى.' },
-        { id: 's4', cat: 'services', title: '10 منشورات جاهزة', price: 20, file: 'service-posts.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'كتابة وتصميم 10 منشورات لنشاطك.' },
-        { id: 's5', cat: 'services', title: 'مونتاج فيديو 1 دقيقة', price: 25, file: 'service-video.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تعديل وتجهيز فيديو احترافي.' },
-        { id: 's6', cat: 'services', title: 'كتابة مقال SEO', price: 8, file: 'service-article.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'مقال متوافق مع محركات البحث.' },
-        { id: 's7', cat: 'services', title: 'ترجمة 1000 كلمة', price: 15, file: 'service-translate.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'ترجمة بشرية دقيقة ومتقنة.' },
+        { id: 's1', cat: 'services', title: 'تصميم موقع خلال 24س', price: 200, file: 'service-website.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'خدمة تطوير موقع ويب سريع واحترافي.' },
+        { id: 's2', cat: 'services', title: 'تصميم لوجو احترافي', price: 30, file: 'service-logo.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تصميم شعار مميز يعبر عن هويتك.' },
+        { id: 's3', cat: 'services', title: 'ادارة صفحة انستا شهر', price: 100, file: 'service-instagram.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'إدارة وتنشيط الحساب ونشر المحتوى.' },
+        { id: 's4', cat: 'services', title: '10 منشورات جاهزة', price: 20, file: 'service-posts.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'كتابة وتصميم 10 منشورات لنشاطك.' },
+        { id: 's5', cat: 'services', title: 'مونتاج فيديو 1 دقيقة', price: 25, file: 'service-video.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تعديل وتجهيز فيديو احترافي.' },
+        { id: 's6', cat: 'services', title: 'كتابة مقال SEO', price: 8, file: 'service-article.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'مقال متوافق مع محركات البحث.' },
+        { id: 's7', cat: 'services', title: 'ترجمة 1000 كلمة', price: 15, file: 'service-translate.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'ترجمة بشرية دقيقة ومتقنة.' },
         { id: 's8', cat: 'services', title: 'بوت واتساب جاهز', price: 50, file: 'bot-whatsapp.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'برمجة الرد الآلي على استفسارات العملاء.' },
-        { id: 's9', cat: 'services', title: 'استشارة برمجة 1 ساعة', price: 20, file: 'service-consult.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'جلسة استشارية لحل المشاكل البرمجية.' },
-        { id: 's10', cat: 'services', title: 'تصميم هوية بصرية كاملة', price: 80, file: 'service-branding.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'شعار، كروت، وألوان مشروعك المتكاملة.' },
-        { id: 's11', cat: 'services', title: 'رفع موقع على الاستضافة', price: 15, file: 'service-hosting.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'ربط الدومين والاستضافة وتهيئة الموقع.' },
-        { id: 's12', cat: 'services', title: 'صيانة موقع لمدة شهر', price: 60, file: 'service-maintenance.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'متابعة الدعم الفني والحماية النسخ الاحتياطي.' },
-        { id: 's13', cat: 'services', title: 'إعلانات جوجل Google Ads', price: 70, file: 'service-googleads.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'إعداد حملة إعلانية مستهدفة.' },
-        { id: 's14', cat: 'services', title: 'تصميم متجر شوبي فاي', price: 150, file: 'service-shopify.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'بناء متجر إلكتروني متكامل على Shopify.' },
-        { id: 's15', cat: 'services', title: 'انشاء سيرفر ديسكورد', price: 10, file: 'service-discord.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تجهيز السيرفر بالرتب والبوتات.' },
-        { id: 's16', cat: 'services', title: 'تحليل منافسين شامل', price: 35, file: 'service-analysis.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تقرير مفصل عن نقاط قوة وصفحات المنافسين.' },
-        { id: 's17', cat: 'services', title: 'كتابة سيرة ذاتية احترافية', price: 12, file: 'service-cv.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'صياغة الـ CV بأسلوب جذاب للشركات.' },
-        { id: 's18', cat: 'services', title: 'تصميم عرض تقديمي PPT', price: 18, file: 'service-presentation.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تجهيز شرايح PowerPoint مخصصة.' },
-        { id: 's19', cat: 'services', title: 'انشاء متجر واتساب', price: 40, file: 'service-wastore.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'كتالوج منتجات مدمج مع الواتساب.' },
-        { id: 's20', cat: 'services', title: 'دومين .com لمدة سنة', price: 12, file: 'service-domain.txt', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'حجز نطاق عالمي باسم مشروعك.' }
+        { id: 's9', cat: 'services', title: 'استشارة برمجة 1 ساعة', price: 20, file: 'service-consult.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'جلسة استشارية لحل المشاكل البرمجية.' },
+        { id: 's10', cat: 'services', title: 'تصميم هوية بصرية كاملة', price: 80, file: 'service-branding.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'شعار، كروت، وألوان مشروعك المتكاملة.' },
+        { id: 's11', cat: 'services', title: 'رفع موقع على الاستضافة', price: 15, file: 'service-hosting.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'ربط الدومين والاستضافة وتهيئة الموقع.' },
+        { id: 's12', cat: 'services', title: 'صيانة موقع لمدة شهر', price: 60, file: 'service-maintenance.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'متابعة الدعم الفني والحماية النسخ الاحتياطي.' },
+        { id: 's13', cat: 'services', title: 'إعلانات جوجل Google Ads', price: 70, file: 'service-googleads.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'إعداد حملة إعلانية مستهدفة.' },
+        { id: 's14', cat: 'services', title: 'تصميم متجر شوبي فاي', price: 150, file: 'service-shopify.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'بناء متجر إلكتروني متكامل على Shopify.' },
+        { id: 's15', cat: 'services', title: 'انشاء سيرفر ديسكورد', price: 10, file: 'service-discord.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تجهيز السيرفر بالرتب والبوتات.' },
+        { id: 's16', cat: 'services', title: 'تحليل منافسين شامل', price: 35, file: 'service-analysis.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تقرير مفصل عن نقاط قوة وصفحات المنافسين.' },
+        { id: 's17', cat: 'services', title: 'كتابة سيرة ذاتية احترافية', price: 12, file: 'service-cv.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'صياغة الـ CV بأسلوب جذاب للشركات.' },
+        { id: 's18', cat: 'services', title: 'تصميم عرض تقديمي PPT', price: 18, file: 'service-presentation.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'تجهيز شرايح PowerPoint مخصصة.' },
+        { id: 's19', cat: 'services', title: 'انشاء متجر واتساب', price: 40, file: 'service-wastore.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'كتالوج منتجات مدمج مع الواتساب.' },
+        { id: 's20', cat: 'services', title: 'دومين .com لمدة سنة', price: 12, file: 'service-domain.zip', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400', desc: 'حجز نطاق عالمي باسم مشروعك.' }
     ];
 
     let products = JSON.parse(localStorage.getItem('store_products')) || defaultProducts;
@@ -488,6 +532,16 @@
             card.setAttribute('data-cat', prod.cat);
             card.setAttribute('data-id', prod.id);
 
+            let actionBtn = '';
+            if (prod.price === 0) {
+                // منتج مجاني: تنزيل تلقائي فوري
+                const downloadLink = prod.file.startsWith('http') ? prod.file : BASE_DOWNLOAD_URL + prod.file;
+                actionBtn = `<a href="${downloadLink}" target="_blank" download class="btn-download"><i class="fa-solid fa-download"></i> تحميل مباشر مجاناً</a>`;
+            } else {
+                // منتج مدفوع: فتح نافذة نيو كارد ورقم الحوالة للتنزيل التلقائي
+                actionBtn = `<button class="btn-buy" onclick="openOrderModal('${prod.title}', ${prod.price}, '${prod.file}')"><i class="fa-solid fa-cart-shopping"></i> شراء وتنزيل تلقائي (${prod.price} $)</button>`;
+            }
+
             card.innerHTML = `
                 ${isAdmin ? '<span class="owner-badge" style="display:block;">مالك المتجر</span>' : ''}
                 <img src="${prod.img}" alt="${prod.title}">
@@ -497,14 +551,12 @@
                         <p>${prod.desc}</p>
                     </div>
                     <div>
-                        <div class="price-tag">${prod.price} $</div>
+                        <div class="price-tag">${prod.price === 0 ? 'مجاني' : prod.price + ' $'}</div>
                         <div class="card-actions">
-                            <button class="btn-buy" onclick="openOrderModal('${prod.title}', ${prod.price})">
-                                <i class="fa-brands fa-whatsapp"></i> طلب / شراء الآن
-                            </button>
+                            ${actionBtn}
                             <div class="btn-group-owner">
                                 <button class="btn-share" onclick="shareProductLink('${prod.title}', '${prod.file}')">
-                                    <i class="fa-solid fa-copy"></i> نسخ رابط الإرسال
+                                    <i class="fa-solid fa-copy"></i> نسخ رابط الملف
                                 </button>
                                 ${isAdmin ? `<button class="btn-delete" onclick="deleteProduct('${prod.id}')"><i class="fa-solid fa-trash"></i></button>` : ''}
                             </div>
@@ -543,37 +595,45 @@
     }
 
     function shareProductLink(title, file) {
-          let link = 'https://alrbysadqthmanmhmd-cpu.github.io/aseel-site/downloads/' + file;
- 
-
-       if (navigator.clipboard) {
+        let link = file.startsWith('http') ? file : BASE_DOWNLOAD_URL + file;
+        if (navigator.clipboard) {
             navigator.clipboard.writeText(link);
-            showToast("تم نسخ رابط: " + title + "\n\nالان الصقه للعميل في واتساب بعد ما يحول الفلوس");
+            showToast("تم نسخ رابط تنزيل: " + title);
         } else {
             alert("رابط التحميل: " + link);
         }
     }
 
-    let currentProd = { name: '', price: 0 };
-    function openOrderModal(name, price) {
-        currentProd = { name, price };
+    let currentProd = { name: '', price: 0, file: '' };
+    function openOrderModal(name, price, file) {
+        currentProd = { name, price, file };
         document.getElementById('modalProductName').innerText = name;
         document.getElementById('modalProductPrice').innerText = price + " $";
+        document.getElementById('transNumber').value = '';
         document.getElementById('orderModal').style.display = 'flex';
     }
 
-    function confirmOrder() {
-        const client = document.getElementById('clientName').value.trim() || "عميل محترم";
-        const method = document.getElementById('paymentMethod').value;
+    // التنفيذ والتنزيل التلقائي المباشر بعد إضافة رقم الحوالة
+    function confirmAutoDownload() {
+        const transNum = document.getElementById('transNumber').value.trim();
+        if (!transNum) {
+            alert("يرجى إدخال رقم الحوالة للتأكيد والتنزيل.");
+            return;
+        }
 
-        const msg = `مرحباً أصيل العربي 👋%0A` +
-                    `طلب منتج رقمي جديدة:%0A` +
-                    `المنتج: *${currentProd.name}*%0A` +
-                    `السعر: *${currentProd.price} $*%0A` +
-                    `اسم العميل: *${client}*%0A` +
-                    `طريقة التحويل المفضلة: *${method}*`;
+        showToast("جاري بدء التنزيل التلقائي للمنتج...");
+        
+        let downloadUrl = currentProd.file.startsWith('http') ? currentProd.file : BASE_DOWNLOAD_URL + currentProd.file;
 
-        window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
+        // فتح رابط تنزيل الملف ZIP تلقائياً في المتصفح
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.target = '_blank';
+        link.download = currentProd.file;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
         closeModal('orderModal');
     }
 
