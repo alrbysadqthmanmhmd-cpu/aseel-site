@@ -3,261 +3,485 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محلات الأصيل | التنزيل المباشر والدفع الآلي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>محلات الأصيل للمستلزمات | التنزيل المباشر والتأكيد الفوري</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1e3a8a;
-            --accent: #d97706;
-            --bg: #f8fafc;
+            --primary-blue: #1b365d;
+            --accent-gold: #d99b26;
+            --bg-light: #f3f5f9;
             --card-bg: #ffffff;
-            --text: #0f172a;
-            --success: #16a34a;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --success-green: #10b981;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Cairo', sans-serif;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
-            padding-bottom: 80px;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding-bottom: 50px;
         }
 
-        header {
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
-            color: white;
-            padding: 20px;
+        .header {
+            background: linear-gradient(180deg, #0e1e38 0%, var(--primary-blue) 100%);
+            color: #ffffff;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            padding: 30px 15px 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         }
 
-        header h1 {
-            font-size: 22pt;
-            color: #fbbf24;
-            margin-bottom: 5px;
+        .header h1 {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--accent-gold);
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 700;
         }
 
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-
-        .notice-box {
-            background-color: #e0f2fe;
-            border-right: 4px solid var(--primary);
+            max-width: 600px;
+            margin: 0 auto;
             padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 11pt;
         }
 
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 15px;
-        }
-
-        .product-card {
-            background: var(--card-bg);
+        .alert-box {
+            background: #eef6ff;
+            border: 1px solid #b8d9ff;
+            border-right: 4px solid var(--primary-blue);
             border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
+            padding: 14px 16px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        .product-title {
+        .alert-box p {
+            font-size: 13.5px;
+            color: var(--primary-blue);
             font-weight: 700;
-            font-size: 13pt;
-            margin: 10px 0;
+            line-height: 1.5;
         }
 
-        .product-price {
-            color: var(--accent);
-            font-weight: 800;
-            font-size: 14pt;
+        .filters {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+            scrollbar-width: none;
+        }
+
+        .filters::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .filter-btn.active {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border-color: var(--primary-blue);
+        }
+
+        .products-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 22px 18px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-icon {
+            font-size: 48px;
+            color: var(--primary-blue);
             margin-bottom: 12px;
         }
 
-        .btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
+        .card h3 {
+            font-size: 19px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .card p.desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .card .price-tag {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+        }
+
+        .btn-buy {
             width: 100%;
-            transition: 0.2s;
+            background: var(--primary-blue);
+            color: #ffffff;
+            border: none;
+            padding: 13px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
         }
 
-        .btn:hover {
-            background-color: #1d4ed8;
+        .btn-buy:active {
+            transform: scale(0.98);
         }
 
-        /* Modal / Payment Area */
         .modal {
             display: none;
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.7);
-            align-items: center;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
             justify-content: center;
-            padding: 15px;
+            align-items: center;
             z-index: 1000;
+            padding: 15px;
         }
 
         .modal-content {
-            background: white;
-            padding: 25px;
+            background: var(--card-bg);
+            padding: 24px;
             border-radius: 16px;
-            max-width: 450px;
             width: 100%;
-            text-align: right;
+            max-width: 450px;
+            text-align: center;
+            position: relative;
         }
 
-        .wallet-box {
-            background: #f1f5f9;
-            border: 2px dashed var(--accent);
+        .close-btn {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            cursor: pointer;
+            font-size: 22px;
+            color: var(--text-muted);
+        }
+
+        .neocard-box {
+            background: #f0f7ff;
+            border: 1px dashed var(--primary-blue);
             padding: 15px;
             border-radius: 10px;
-            text-align: center;
             margin: 15px 0;
         }
 
-        .wallet-num {
-            font-size: 20pt;
-            font-weight: 800;
-            color: var(--primary);
+        .neocard-number {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--primary-blue);
             letter-spacing: 2px;
+            margin: 5px 0;
         }
 
-        input {
+        .form-input {
             width: 100%;
             padding: 12px;
-            margin: 10px 0 15px 0;
-            border: 1px solid #cbd5e1;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            font-size: 11pt;
-        }
-
-        .download-area {
-            display: none;
-            background: #dcfce7;
-            border: 1px solid #86efac;
-            padding: 20px;
-            border-radius: 12px;
+            font-size: 14px;
             text-align: center;
-            margin-top: 15px;
+            margin-bottom: 15px;
+            outline: none;
         }
 
-        .btn-download {
-            background-color: var(--success);
+        .form-input:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success-green);
             color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 8px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 13px;
             font-weight: 700;
-            margin-top: 10px;
+            display: none;
+            z-index: 2000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>محلات الأصيل للمستلزمات</h1>
-        <p>التنزيل المباشر والتأكيد الفوري عبر رقم الحوالة</p>
-    </header>
+<header class="header">
+    <h1>محلات الأصيل للمستلزمات</h1>
+    <p>التنزيل المباشر والتأكيد الفوري عبر رقم الحوالة</p>
+</header>
 
-    <div class="container">
-        <div class="notice-box">
-            <i class="fa-solid fa-bolt"></i> <strong>تنزيل تلقائي مباشر:</strong> قم بالتحويل إلى رقم المحفظة أدناه وادخل رقم العملية لاستلام زر التنزيل فوراً!
-        </div>
+<div class="container">
 
-        <div class="products-grid">
-            <div class="product-card">
-                <i class="fa-solid fa-file-pdf fa-3x" style="color:var(--primary);"></i>
-                <div class="product-title">كتالوج المنتجات والأسعار الشامل</div>
-                <div class="product-price">1,000 ريال</div>
-                <button class="btn" onclick="openPayment('كتالوج المنتجات', '1000')">شراء وتنزيل الآن</button>
-            </div>
-
-            <div class="product-card">
-                <i class="fa-solid fa-box-open fa-3x" style="color:var(--accent);"></i>
-                <div class="product-title">حزمة التصاميم والعروض الخاصة</div>
-                <div class="product-price">2,000 ريال</div>
-                <button class="btn" onclick="openPayment('حزمة التصاميم', '2000')">شراء وتنزيل الآن</button>
-            </div>
-        </div>
+    <div class="alert-box">
+        <p>⚡ <strong>تنزيل تلقائي مباشر:</strong> قم بالتحويل إلى رقم المحفظة أدناه وادخل رقم العملية لاستلام زر التنزيل فوراً!</p>
     </div>
 
-    <!-- نافذة الدفع والتنزيل -->
-    <div id="paymentModal" class="modal">
-        <div class="modal-content">
-            <h3 id="modalTitle">إتمام عملية الدفع</h3>
-            <p style="font-size:10pt; color:#64748b; margin-top:5px;">قم بالتحويل عبر نيو كارد / ماي كاشي للرقم الموضح:</p>
+    <!-- الفلاتر -->
+    <div class="filters">
+        <button class="filter-btn active" onclick="filterCategory('all', this)">الكل (83)</button>
+        <button class="filter-btn" onclick="filterCategory('websites', this)">قوالب مواقع (15)</button>
+        <button class="filter-btn" onclick="filterCategory('design', this)">حزم تصميم (26)</button>
+        <button class="filter-btn" onclick="filterCategory('books', this)">كتب ودورات (21)</button>
+        <button class="filter-btn" onclick="filterCategory('services', this)">خدمات وأدوات (20)</button>
+        <button class="filter-btn" onclick="filterCategory('crypto', this)">شحن عملات</button>
+    </div>
+
+    <!-- قائمة المنتجات -->
+    <div id="products-container" class="products-list"></div>
+
+</div>
+
+<!-- نافذة إدخال رقم الحوالة للتحميل التلقائي -->
+<div class="modal" id="orderModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3 style="color: var(--primary-blue); margin-bottom: 8px;" id="modalTitle">اسم المنتج</h3>
+        <p style="font-size: 14px; color: var(--text-muted);">السعر: <strong id="modalPrice" style="color: var(--accent-gold);"></strong></p>
+        
+        <div class="neocard-box">
+            <p style="font-size: 13px; color: var(--primary-blue); font-weight: 700;">قم بالتحويل إلى رقم محفظة نيو كارد:</p>
+            <div class="neocard-number">62776</div>
+            <p style="font-size: 11px; color: var(--text-muted);">ثم ادخل رقم العملية أدناه للبدء بالتنزيل التلقائي</p>
+        </div>
+
+        <input type="text" id="transNumber" class="form-input" placeholder="ادخل رقم الحوالة / العملية هنا">
+        <button class="btn-buy" onclick="confirmAutoDownload()"><i class="fa-solid fa-cloud-arrow-down"></i> تأكيد الحوالة والتنزيل الفوري</button>
+    </div>
+</div>
+
+<div class="toast" id="toastMsg">تم التنزيل بنجاح!</div>
+
+<script>
+    const BASE_DOWNLOAD_URL = 'https://alrbysadqthmanmhmd-cpu.github.io/aseel-site/downloads/';
+
+    // قائمة المنتجات الـ 83 كاملة
+    const products = [
+        { id: 'm1', cat: 'books', title: 'تطبيق تنظيم الوقت (APK)', price: 0, file: 'https://mega.nz', icon: 'fa-box-open', desc: 'تطبيق مجاني للتحميل المباشر APK.' },
+        { id: 'm2', cat: 'websites', title: 'قالب متجر إلكتروني احترافي', price: 1000, file: 'template-store-pro.zip', icon: 'fa-file-code', desc: 'قالب متكامل جاهز مع نظام تنزيل تلقائي.' },
+        { id: 'm3', cat: 'design', title: 'حزمة 500 خط عربي (Zip)', price: 0, file: 'https://mega.nz', icon: 'fa-font', desc: 'تحميل مباشر مجاني لجميع الخطوط العربية الاحترافية.' },
+
+        // قوالب مواقع (15)
+        { id: 'w1', cat: 'websites', title: 'قالب موقع مطعم', price: 2500, file: 'template-restaurant.zip', icon: 'fa-utensils', desc: 'تصميم متجاوب لعرض قائمة الوجبات مع نظام طلب مباشر.' },
+        { id: 'w2', cat: 'websites', title: 'قالب متجر الكتروني', price: 3000, file: 'template-store.zip', icon: 'fa-store', desc: 'متجر عصري متكامل مع سلة تسوق وخيارات فلترة.' },
+        { id: 'w3', cat: 'websites', title: 'قالب شركة 5 صفحات', price: 4000, file: 'template-company.zip', icon: 'fa-building', desc: 'موقع تعريفي احترافي للشركات والمؤسسات.' },
+        { id: 'w4', cat: 'websites', title: 'قالب Portfolio شخصي', price: 1500, file: 'template-portfolio.zip', icon: 'fa-user-tie', desc: 'معرض أعمال سيرتك الذاتية جذاب وسريع التحميل.' },
+        { id: 'w5', cat: 'websites', title: 'قالب عقارات', price: 3500, file: 'template-realestate.zip', icon: 'fa-city', desc: 'عرض العقارات والشقق مع محرك بحث وتواصل مدمج.' },
+        { id: 'w6', cat: 'websites', title: 'قالب عيادة طبية', price: 2500, file: 'template-clinic.zip', icon: 'fa-hospital', desc: 'تصميم نقي للخدمات الطبية وحجز المواعيد.' },
+        { id: 'w7', cat: 'websites', title: 'قالب مدرسة', price: 2800, file: 'template-school.zip', icon: 'fa-graduation-cap', desc: 'موقع مؤسسة تعليمية لعرض المواد والمدرسين.' },
+        { id: 'w8', cat: 'websites', title: 'قالب صالة رياضية', price: 2200, file: 'template-gym.zip', icon: 'fa-dumbbell', desc: 'عرض الاشتراكات والأنشطة الرياضية بجاذبية.' },
+        { id: 'w9', cat: 'websites', title: 'قالب مصور فوتوغرافي', price: 1800, file: 'template-photographer.zip', icon: 'fa-camera', desc: 'معرض صور بتأثيرات بصرية عصرية.' },
+        { id: 'w10', cat: 'websites', title: 'قالب مدونة', price: 1200, file: 'template-blog.zip', icon: 'fa-newspaper', desc: 'قالب مخصص للمقالات والأخبار سريع ومتهيء للـ SEO.' },
+        { id: 'w11', cat: 'websites', title: '10 قوالب HTML متنوعة', price: 1000, file: '10-templates.zip', icon: 'fa-code', desc: 'مجموعة قوالب HTML5 متعددة الاستخدامات.' },
+        { id: 'w12', cat: 'websites', title: 'قالب صفحة هبوط', price: 1200, file: 'template-landing.zip', icon: 'fa-file-invoice', desc: 'صفحة هبوط مخصصة لزيادة المبيعات والتحويلات.' },
+        { id: 'w13', cat: 'websites', title: 'قالب موقع اخبار', price: 4500, file: 'template-news.zip', icon: 'fa-globe', desc: 'بوابة إخبارية كاملة التقسيمات مع أماكن للإعلانات.' },
+        { id: 'w14', cat: 'websites', title: 'قالب وكالة سفر', price: 2600, file: 'template-travel.zip', icon: 'fa-plane-departure', desc: 'عرض الرحلات السياحية وحجوزات الفنادق.' },
+        { id: 'w15', cat: 'websites', title: 'قالب لوحة تحكم Admin', price: 1600, file: 'template-admin.zip', icon: 'fa-sliders', desc: 'واجهة خلفية منظمة لإدارة البيانات والإحصائيات.' },
+
+        // حزم تصميم (26)
+        { id: 'd1', cat: 'design', title: '500 قالب منشور انستا', price: 1000, file: 'pack-instagram.zip', icon: 'fa-photo-film', desc: 'قوالب سوشيال ميديا قابلة للتعديل على Canva وPhotoshop.' },
+        { id: 'd2', cat: 'design', title: '100 لوجو جاهز للتعديل', price: 800, file: 'pack-logos.zip', icon: 'fa-palette', desc: 'شعارات فيكتور جاهزة بمختلف التخصصات.' },
+        { id: 'd3', cat: 'design', title: '1000 صورة ستوك عالية الجودة', price: 500, file: 'pack-images.zip', icon: 'fa-images', desc: 'مكتبة صور احترافية بدون حقوق طبع ونشر.' },
+        { id: 'd4', cat: 'design', title: '500 ايقونة فيكتور', price: 400, file: 'pack-icons.zip', icon: 'fa-icons', desc: 'أيقونات بدقة عالية للتطبيقات والمواقع.' },
+        { id: 'd5', cat: 'design', title: '50 قالب باوربوينت', price: 600, file: 'pack-ppt.zip', icon: 'fa-file-powerpoint', desc: 'عروض تقديمية احترافية للشركات والطلاب.' },
+        { id: 'd6', cat: 'design', title: '100 خط عربي احترافي', price: 500, file: 'pack-fonts.zip', icon: 'fa-font', desc: 'أجمل الخطوط العربية للتصميم والمونتاج.' },
+        { id: 'd7', cat: 'design', title: '200 قالب ستوري', price: 700, file: 'pack-stories.zip', icon: 'fa-mobile-screen', desc: 'قصص انستغرام وواتساب متناسقة وجذابة.' },
+        { id: 'd8', cat: 'design', title: '50 قالب شهادة تقدير', price: 400, file: 'pack-certificates.zip', icon: 'fa-award', desc: 'قوالب شهادات قابلة للتعديل والطباعة.' },
+        { id: 'd9', cat: 'design', title: '100 قالب منيو مطعم', price: 900, file: 'pack-menu.zip', icon: 'fa-book-open', desc: 'تصاميم لائحة طعام عصرية وجاهزة.' },
+        { id: 'd10', cat: 'design', title: '300 مؤثر صوتي للمونتاج', price: 800, file: 'pack-sounds.zip', icon: 'fa-music', desc: 'مؤثرات صوتية نقية لإنتاج الفيديوهات.' },
+        { id: 'd11', cat: 'design', title: '50 قالب ريلز احترافي', price: 900, file: 'pack-reels.zip', icon: 'fa-film', desc: 'قوالب فيديو قصيرة لمحتوى TikTok وReels.' },
+        { id: 'd12', cat: 'design', title: '1000 خلفية موبايل 4K', price: 300, file: 'pack-wallpapers.zip', icon: 'fa-image', desc: 'خلفيات فائقة الوضوح للهواتف.' },
+        { id: 'd13', cat: 'design', title: '200 موك اب Mockup', price: 1100, file: 'pack-mockup.zip', icon: 'fa-cube', desc: 'نماذج عرض المنتجات والهويات البصرية.' },
+        { id: 'd14', cat: 'design', title: '50 قالب سيرة ذاتية CV', price: 500, file: 'pack-cv.zip', icon: 'fa-file-user', desc: 'نماذج CV احترافية تضمن قبولك بالعمل.' },
+        { id: 'd15', cat: 'design', title: '100 قالب بطاقة عمل', price: 600, file: 'pack-businesscard.zip', icon: 'fa-address-card', desc: 'تصاميم كروت شخصية قابلة للتعديل.' },
+        { id: 'd16', cat: 'design', title: '500 صورة منتجات مفرغة', price: 800, file: 'pack-products.zip', icon: 'fa-box', desc: 'عناصر منتجات بدون خلفية للتصميم التجاري.' },
+        { id: 'd17', cat: 'design', title: '100 قالب اعلان تسويقي', price: 700, file: 'pack-ads.zip', icon: 'fa-rectangle-ad', desc: 'بنرات إعلانية تزيد من نسبة التفاعل.' },
+        { id: 'd18', cat: 'design', title: '50 قالب فاتورة طباعة', price: 400, file: 'pack-invoice.zip', icon: 'fa-file-invoice-dollar', desc: 'نماذج فواتير رسمية تجارية.' },
+        { id: 'd19', cat: 'design', title: '1000 خط انجليزي مميز', price: 500, file: 'pack-enfonts.zip', icon: 'fa-italic', desc: 'مجموعة خطوط لاتينية عصرية.' },
+        { id: 'd20', cat: 'design', title: '200 فيديو ستوك HD', price: 1500, file: 'pack-videos.zip', icon: 'fa-video', desc: 'مقاطع فيديو للمونتاج والإعلانات.' },
+        { id: 'd21', cat: 'design', title: 'حزمة فرش فوتوشوب', price: 700, file: 'pack-psbrushes.zip', icon: 'fa-paint-brush', desc: 'فرش احترافية للرسم الدمج والتصميم.' },
+        { id: 'd22', cat: 'design', title: 'فلترات Lightroom للتعديل', price: 900, file: 'pack-lightroom.zip', icon: 'fa-sliders', desc: 'تعديلات ألوان سريعة بضغطة زر للصورة.' },
+        { id: 'd23', cat: 'design', title: '100 قالب غلاف يوتيوب', price: 700, file: 'pack-ytbanners.zip', icon: 'fa-youtube', desc: 'بنرات قنوات يوتيوب احترافية.' },
+        { id: 'd24', cat: 'design', title: '50 قالب مصغرة يوتيوب', price: 600, file: 'pack-thumbnails.zip', icon: 'fa-expand', desc: 'تصاميم مصغرات لزيادة المشاهدات.' },
+        { id: 'd25', cat: 'design', title: 'حزمة انتقالات فيديو للمونتاج', price: 1200, file: 'pack-transitions.zip', icon: 'fa-wand-magic-sparkles', desc: 'مؤثرات الانتقال بين المشاهد الاحترافية.' },
+        { id: 'd26', cat: 'design', title: 'حزمة التصاميم والعروض الخاصة', price: 2000, file: 'pack-special-offers.zip', icon: 'fa-box', desc: 'تنزيل مباشر وشامل لكافة قوالب العروض والتصاميم.' },
+
+        // كتب ودورات PDF (21)
+        { id: 'b0', cat: 'books', title: 'كتالوج المنتجات والأشعار الشامل (PDF)', price: 1000, file: 'catalog-products.pdf', icon: 'fa-file-pdf', desc: 'الكتالوج الرسمي الكامل مع تفاصيل الميزات والأسعار.' },
+        { id: 'b1', cat: 'books', title: 'كتاب الربح من الانترنت', price: 500, file: 'book-profit.pdf', icon: 'fa-book', desc: 'دليل شامل لطرق العمل الحر والربح الرقمي.' },
+        { id: 'b2', cat: 'books', title: 'دورة تصميم المواقع', price: 1500, file: 'course-design.zip', icon: 'fa-laptop-code', desc: 'شروحات وملفات عمل تعليم برمجة المواقع.' },
+        { id: 'b3', cat: 'books', title: 'كتاب التسويق الرقمي', price: 600, file: 'book-marketing.pdf', icon: 'fa-bullhorn', desc: 'استراتيجيات استهداف العملاء وتحقيق المبيعات.' },
+        { id: 'b4', cat: 'books', title: 'دورة المونتاج بالجوال', price: 1000, file: 'course-editing.zip', icon: 'fa-mobile-retro', desc: 'احترف تعديل الفيديوهات من هاتفك مباشرة.' },
+        { id: 'b5', cat: 'books', title: 'كتاب 100 فكرة مشروع', price: 300, file: 'book-ideas.pdf', icon: 'fa-lightbulb', desc: 'أفكار مشاريع مربحة برأس مال صغير.' },
+        { id: 'b6', cat: 'books', title: 'دورة بايثون للمبتدئين', price: 2000, file: 'course-python.zip', icon: 'fa-code-merge', desc: 'تعلم أساسيات البرمجة ولغة Python خطوة بخطوة.' },
+        { id: 'b7', cat: 'books', title: 'دليل اسعار الشحن في اليمن', price: 200, file: 'guide-shipping.pdf', icon: 'fa-truck-fast', desc: 'معلومات تفصيلية حول شركات الشحن والأسعار.' },
+        { id: 'b8', cat: 'books', title: 'كتاب الذكاء الاصطناعي', price: 800, file: 'book-ai.pdf', icon: 'fa-robot', desc: 'طرق استغلال أدوات AI لتسريع عملك.' },
+        { id: 'b9', cat: 'books', title: '1000 جملة تسويقية جاذبة', price: 400, file: 'book-sentences.pdf', icon: 'fa-pen-nib', desc: 'عبارات بيعية قوية لتحسين النصوص الإعلانية.' },
+        { id: 'b10', cat: 'books', title: 'دورة ادارة صفحات التواصل', price: 1200, file: 'course-social.zip', icon: 'fa-share-nodes', desc: 'كيف تصبح Social Media Manager محترف.' },
+        { id: 'b11', cat: 'books', title: 'كتاب تصميم ب Canva', price: 400, file: 'book-canva.pdf', icon: 'fa-paint-roller', desc: 'شرح أسرار منصة كانفا بالتفصيل.' },
+        { id: 'b12', cat: 'books', title: 'دورة كتابة المحتوى', price: 900, file: 'course-writing.zip', icon: 'fa-align-right', desc: 'فن صياغة المحتوى الذي يجذب الجمهور.' },
+        { id: 'b13', cat: 'books', title: '50 عقد عمل جاهز', price: 700, file: 'contracts.zip', icon: 'fa-file-contract', desc: 'نماذج عقود قانونية وتجارية قابلة للتعديل.' },
+        { id: 'b14', cat: 'books', title: 'دليل التجارة الالكترونية', price: 800, file: 'guide-ecommerce.pdf', icon: 'fa-cart-flatbed', desc: 'خطوات بناء متجرك الإلكتروني الناجح.' },
+        { id: 'b15', cat: 'books', title: '100 اقتباس تحفيزي', price: 200, file: 'book-quotes.pdf', icon: 'fa-quote-right', desc: 'مقولات واقتباسات لصناع المحتوى.' },
+        { id: 'b16', cat: 'books', title: 'دليل العمل الحر والتفريغ', price: 500, file: 'guide-freelance.pdf', icon: 'fa-briefcase', desc: 'بدء العمل عبر منصات الخدمات المصغرة.' },
+        { id: 'b17', cat: 'books', title: 'دورة اعلانات فيسبوك', price: 1500, file: 'course-fb-ads.zip', icon: 'fa-rectangle-ad', desc: 'إدارة الحملات الإعلانية المدفوعة على Facebook.' },
+        { id: 'b18', cat: 'books', title: 'كتاب أساسيات الأمن السيبراني', price: 900, file: 'book-cyber.pdf', icon: 'fa-shield-halved', desc: 'دليل حماية الحسابات والبيانات الشخصية.' },
+        { id: 'b19', cat: 'books', title: 'دورة سيو SEO المتكاملة', price: 1400, file: 'course-seo.zip', icon: 'fa-magnifying-glass-chart', desc: 'تصدر نتائج محركات البحث لموقعك.' },
+        { id: 'b20', cat: 'books', title: 'دليل إنشاء المتاجر الإلكترونية', price: 600, file: 'guide-stores.pdf', icon: 'fa-shop', desc: 'كل ما تحتاجه لبدء بيع المنتجات أونلاين.' },
+
+        // خدمات وأدوات (20)
+        { id: 's1', cat: 'services', title: 'تصميم موقع خلال 24س', price: 15000, file: 'service-website.zip', icon: 'fa-display', desc: 'خدمة تطوير موقع ويب سريع واحترافي.' },
+        { id: 's2', cat: 'services', title: 'تصميم لوجو احترافي', price: 2000, file: 'service-logo.zip', icon: 'fa-vector-square', desc: 'تصميم شعار مميز يعبر عن هويتك.' },
+        { id: 's3', cat: 'services', title: 'ادارة صفحة انستا شهر', price: 8000, file: 'service-instagram.zip', icon: 'fa-user-gear', desc: 'إدارة وتنشيط الحساب ونشر المحتوى.' },
+        { id: 's4', cat: 'services', title: '10 منشورات جاهزة', price: 1500, file: 'service-posts.zip', icon: 'fa-layer-group', desc: 'كتابة وتصميم 10 منشورات لنشاطك.' },
+        { id: 's5', cat: 'services', title: 'مونتاج فيديو 1 دقيقة', price: 1800, file: 'service-video.zip', icon: 'fa-clapperboard', desc: 'تعديل وتجهيز فيديو احترافي.' },
+        { id: 's6', cat: 'services', title: 'كتابة مقال SEO', price: 600, file: 'service-article.zip', icon: 'fa-newspaper', desc: 'مقال متوافق مع محركات البحث.' },
+        { id: 's7', cat: 'services', title: 'ترجمة 1000 كلمة', price: 1000, file: 'service-translate.zip', icon: 'fa-language', desc: 'ترجمة بشرية دقيقة ومتقنة.' },
+        { id: 's8', cat: 'services', title: 'بوت واتساب جاهز', price: 3500, file: 'bot-whatsapp.zip', icon: 'fa-robot', desc: 'برمجة الرد الآلي على استفسارات العملاء.' },
+        { id: 's9', cat: 'services', title: 'استشارة برمجة 1 ساعة', price: 1500, file: 'service-consult.zip', icon: 'fa-comments', desc: 'جلسة استشارية لحل المشاكل البرمجية.' },
+        { id: 's10', cat: 'services', title: 'تصميم هوية بصرية كاملة', price: 6000, file: 'service-branding.zip', icon: 'fa-swatchbook', desc: 'شعار، كروت، وألوان مشروعك المتكاملة.' },
+        { id: 's11', cat: 'services', title: 'رفع موقع على الاستضافة', price: 1000, file: 'service-hosting.zip', icon: 'fa-server', desc: 'ربط الدومين والاستضافة وتهيئة الموقع.' },
+        { id: 's12', cat: 'services', title: 'صيانة موقع لمدة شهر', price: 4000, file: 'service-maintenance.zip', icon: 'fa-gears', desc: 'متابعة الدعم الفني والحماية النسخ الاحتياطي.' },
+        { id: 's13', cat: 'services', title: 'إعلانات جوجل Google Ads', price: 5000, file: 'service-googleads.zip', icon: 'fa-brands fa-google', desc: 'إعداد حملة إعلانية مستهدفة.' },
+        { id: 's14', cat: 'services', title: 'تصميم متجر شوبي فاي', price: 10000, file: 'service-shopify.zip', icon: 'fa-brands fa-shopify', desc: 'بناء متجر إلكتروني متكامل على Shopify.' },
+        { id: 's15', cat: 'services', title: 'انشاء سيرفر ديسكورد', price: 800, file: 'service-discord.zip', icon: 'fa-brands fa-discord', desc: 'تجهيز السيرفر بالرتب والبوتات.' },
+        { id: 's16', cat: 'services', title: 'تحليل منافسين شامل', price: 2500, file: 'service-analysis.zip', icon: 'fa-chart-pie', desc: 'تقرير مفصل عن نقاط قوة وصفحات المنافسين.' },
+        { id: 's17', cat: 'services', title: 'كتابة سيرة ذاتية احترافية', price: 900, file: 'service-cv.zip', icon: 'fa-id-card', desc: 'صياغة الـ CV بأسلوب جذاب للشركات.' },
+        { id: 's18', cat: 'services', title: 'تصميم عرض تقديمي PPT', price: 1200, file: 'service-presentation.zip', icon: 'fa-file-powerpoint', desc: 'تجهيز شرايح PowerPoint مخصصة.' },
+        { id: 's19', cat: 'services', title: 'انشاء متجر واتساب', price: 3000, file: 'service-wastore.zip', icon: 'fa-store', desc: 'كتالوج منتجات مدمج مع الواتساب.' },
+        { id: 's20', cat: 'services', title: 'دومين .com لمدة سنة', price: 1000, file: 'service-domain.zip', icon: 'fa-link', desc: 'حجز نطاق عالمي باسم مشروعك.' }
+    ];
+
+    window.onload = function() {
+        renderProducts(products);
+    };
+
+    function renderProducts(items) {
+        const container = document.getElementById('products-container');
+        container.innerHTML = '';
+
+        items.forEach(prod => {
+            const card = document.createElement('div');
+            card.className = 'card';
             
-            <div class="wallet-box">
-                <div>رقم المحفظة (نيو كارد / NewCard):</div>
-                <div class="wallet-num">62776</div>
-                <div style="font-size:9pt; color:#475569; margin-top:4px;">المبلغ المطلوب: <span id="modalPrice">0</span> ريال</div>
-            </div>
-
-            <label style="font-weight:700; font-size:10pt;">ادخل رقم العملية / رقم الحوالة:</label>
-            <input type="number" id="transId" placeholder="مثال: 987654321">
-
-            <button class="btn" style="background:var(--success);" onclick="confirmTransaction()">تأكيد وإظهار رابط التنزيل</button>
-            <button class="btn" style="background:#ef4444; margin-top:8px;" onclick="closeModal()">إلغاء</button>
-
-            <!-- منطقة التنزيل التلقائي المباشر -->
-            <div id="downloadArea" class="download-area">
-                <i class="fa-solid fa-circle-check fa-2x" style="color:var(--success);"></i>
-                <h4 style="margin:8px 0; color:#166534;">تم التحقق من رقم العملية!</h4>
-                <p style="font-size:10pt; color:#15803d;">انقر على الزر أدناه لبدء التنزيل التلقائي المباشر:</p>
-                <a href="#" id="downloadBtn" class="btn-download" download><i class="fa-solid fa-download"></i> تنزيل الملف الآن</a>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let currentProduct = '';
-
-        function openPayment(productName, price) {
-            currentProduct = productName;
-            document.getElementById('modalTitle').innerText = 'دفع: ' + productName;
-            document.getElementById('modalPrice').innerText = price;
-            document.getElementById('downloadArea').style.display = 'none';
-            document.getElementById('transId').value = '';
-            document.getElementById('paymentModal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('paymentModal').style.display = 'none';
-        }
-
-        function confirmTransaction() {
-            const transId = document.getElementById('transId').value;
-            if(!transId || transId.length < 4) {
-                alert('يرجى إدخال رقم عملية / حوالة صحيح لاستلام رابط التنزيل');
-                return;
+            let btnHtml = '';
+            if (prod.price === 0) {
+                const downloadLink = prod.file.startsWith('http') ? prod.file : BASE_DOWNLOAD_URL + prod.file;
+                btnHtml = `<a href="${downloadLink}" target="_blank" download class="btn-buy" style="background:#10b981;"><i class="fa-solid fa-download"></i> تنزيل مجاني الآن</a>`;
+            } else {
+                btnHtml = `<button class="btn-buy" onclick="openOrderModal('${prod.title}', ${prod.price}, '${prod.file}')">شراء وتنزيل الآن</button>`;
             }
 
-            // إظهار منطقة التنزيل التلقائي فوراً
-            document.getElementById('downloadArea').style.display = 'block';
-            
-            // تخصيص رابط التنزيل التلقائي
-            const downloadBtn = document.getElementById('downloadBtn');
-            downloadBtn.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent('شكراً لشراء ' + currentProduct + '. رقم العملية المسجل: ' + transId);
-            downloadBtn.setAttribute('download', currentProduct + '-معلومات-الطلب.txt');
+            card.innerHTML = `
+                <i class="fa-solid ${prod.icon} card-icon"></i>
+                <h3>${prod.title}</h3>
+                <p class="desc">${prod.desc}</p>
+                <div class="price-tag">${prod.price === 0 ? 'مجاني' : prod.price.toLocaleString() + ' ريال'}</div>
+                ${btnHtml}
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function filterCategory(cat, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filtered = (cat === 'all') ? products : products.filter(p => p.cat === cat);
+        renderProducts(filtered);
+    }
+
+    let activeProd = { title: '', price: 0, file: '' };
+
+    function openOrderModal(title, price, file) {
+        activeProd = { title, price, file };
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalPrice').innerText = price.toLocaleString() + " ريال";
+        document.getElementById('transNumber').value = '';
+        document.getElementById('orderModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('orderModal').style.display = 'none';
+    }
+
+    function confirmAutoDownload() {
+        const trans = document.getElementById('transNumber').value.trim();
+        if (!trans) {
+            alert("يرجى إدخال رقم العملية أولاً لاستلام زر التنزيل!");
+            return;
         }
-    </script>
+
+        showToast("جاري بدء التنزيل المباشر والتلقائي...");
+
+        let downloadUrl = activeProd.file.startsWith('http') ? activeProd.file : BASE_DOWNLOAD_URL + activeProd.file;
+
+        const a = document.createElement('a');
+        a.href = downloadUrl;
+        a.target = '_blank';
+        a.download = activeProd.file;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        closeModal();
+    }
+
+    function showToast(msg) {
+        const t = document.getElementById('toastMsg');
+        t.innerText = msg;
+        t.style.display = 'block';
+        setTimeout(() => { t.style.display = 'none'; }, 3000);
+    }
+</script>
+
 </body>
 </html>
